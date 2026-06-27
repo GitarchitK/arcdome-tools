@@ -1,0 +1,396 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImageResizer from '../components/ImageResizer.astro';
+
+// WebApplication schema data for AEO (Answer Engine Optimization)
+const resizeSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arcdome Image Resizer",
+  "url": "https://arcdome.online/resize-image",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript and HTML5 Canvas support.",
+  "description": "Resize image dimensions online free. Downscale width and height in pixels or scale by percentage, or resize image to a target size in KB (like 50KB or 100KB) entirely in your browser.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "permissions": "Processes files entirely in local RAM. No server uploads."
+};
+---
+
+<Layout 
+  title="Resize Image in KB, Dimensions or Pixels Online Free" 
+  description="Resize image dimensions online. Scale width and height in pixels, by percentage (e.g. 50%), or adjust file size to target KB instantly and securely in your browser."
+>
+  <div class="tool-page-container">
+    <div class="tool-header">
+      <h1 class="tool-title">Resize Image Dimensions</h1>
+      <p class="tool-subtitle">Resize image width and height online. Change dimensions or scale by percentage instantly.</p>
+    </div>
+
+    <!-- AEO TL;DR Quick Summary Box -->
+    <section class="aeo-summary-section">
+      <div class="glass-card summary-box">
+        <span class="summary-badge">⚡ Quick Summary / TL;DR</span>
+        <p>
+          Use this tool to <strong>resize image in KB or pixels online</strong>. You can downscale dimensions by custom percentages, enter exact width/height in pixels with an aspect-ratio lock, or set a target file quota in KB. All computations execute locally in client-side RAM using the browser Canvas. Photos are never uploaded, keeping your personal data completely private and secure.
+        </p>
+      </div>
+    </section>
+
+    <!-- Active Tool Container -->
+    <div class="active-tool-card">
+      <ImageResizer />
+    </div>
+
+    <!-- Informative SEO & Guide Section -->
+    <section class="tool-info-section glass-card">
+      <div class="info-block">
+        <h2>How to Resize Image Dimensions Online</h2>
+        <p>
+          Need to crop or resize images to meet website layouts or form guidelines? Here is how to use our resizer:
+        </p>
+        <ol class="info-steps">
+          <li>
+            <strong>Upload:</strong> Drop your photos into the dropzone above or click "Browse Files".
+          </li>
+          <li>
+            <strong>Choose Resizing Mode:</strong> Select "Percentage" to scale down (e.g., to 50% width) or "Dimensions (px)" to enter exact widths and heights.
+          </li>
+          <li>
+            <strong>Aspect Ratio Lock:</strong> Keep the Aspect Ratio Lock active (default) to ensure your image scales proportionally without stretching or distorting. Turn it off to stretch values manually.
+          </li>
+          <li>
+            <strong>Select Save format:</strong> Choose to save as JPG, PNG, WEBP, or keep the original format.
+          </li>
+          <li>
+            <strong>Process & Download:</strong> Click "Resize Images" to process all images in the queue, and download your resized results.
+          </li>
+        </ol>
+      </div>
+
+      <div class="info-block">
+        <h2>Image Resizing vs. Image Compression: What is the Difference?</h2>
+        <p>
+          While both actions help reduce the final file size of an image, they do so using completely different methods:
+        </p>
+        <div class="diff-comparison-grid">
+          <div class="diff-card">
+            <h4>Image Resizing (Dimension Scaling)</h4>
+            <p>
+              Resizing physically changes the pixel dimensions (Width x Height) of the image. For instance, resizing a 4000x3000 photo to 800x600 reduces the total pixels from 12 million to 480,000. This dramatically drops file size because the canvas holds fewer details, but it makes the image smaller on screen.
+            </p>
+          </div>
+          <div class="diff-card">
+            <h4>Image Compression (Quality Adjustment)</h4>
+            <p>
+              Compression keeps the pixel dimensions exactly the same, but decreases the internal detail density. It looks for adjacent pixels with similar colors and groups them together, or removes unnoticeable color variations (lossy compression). This reduces file size while keeping the visual dimensions large, though excessive compression can cause blocky artifact textures.
+            </p>
+          </div>
+        </div>
+        <p class="summary-tip">
+          💡 <strong>SEO Best Practice:</strong> For optimal web performance, first <strong>Resize</strong> your images to the exact width needed by your website template (e.g., 800px for blog content), and then <strong>Compress</strong> them to WebP format to ensure they load in milliseconds!
+        </p>
+      </div>
+    </section>
+    <!-- Related Tools Cross Navigation -->
+    <section class="related-tools-section">
+      <h3 class="related-title">Other Free Image Utilities</h3>
+      <div class="related-grid">
+        <a href="/compress-image" class="glass-card related-tool-card">
+          <div class="related-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+          </div>
+          <div>
+            <h4>Image Compressor</h4>
+            <p>Reduce file size in KB or MB with target size limits.</p>
+          </div>
+        </a>
+
+        <a href="/convert-image" class="glass-card related-tool-card">
+          <div class="related-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+              <path d="m15 5 4 4" />
+            </svg>
+          </div>
+          <div>
+            <h4>Image Converter</h4>
+            <p>Convert images to JPG, PNG, WEBP, or AVIF formats client-side.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .tool-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tool-header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .tool-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+  }
+
+  .tool-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .tool-top-ad {
+    margin: 16px 0;
+  }
+
+  .tool-bottom-ad {
+    margin: 24px 0;
+  }
+
+  .active-tool-card {
+    margin-bottom: 16px;
+  }
+
+  /* SEO Informative Section */
+  .tool-info-section {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    border-radius: 8px;
+  }
+
+  .info-block h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  .info-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  /* Custom numbered lists */
+  .info-steps {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .info-steps li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 36px;
+  }
+
+  .info-steps li::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  .info-steps {
+    counter-reset: step-counter;
+  }
+
+  /* Comparison details */
+  .diff-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .diff-comparison-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .diff-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .diff-card h4 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+  }
+
+  .diff-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .summary-tip {
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .tool-info-section {
+      padding: 24px;
+    }
+    
+    .tool-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* AEO Summary Box */
+  .aeo-summary-section {
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .summary-box {
+    border-left: 4px solid var(--primary) !important;
+    background: #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .summary-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+  }
+
+  .summary-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  /* Related Tools Cross-Navigation */
+  .related-tools-section {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  .related-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .related-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    padding: 20px;
+    transition: var(--transition-smooth);
+  }
+
+  .related-tool-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .related-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: #f1f5f9;
+    color: #475569;
+    flex-shrink: 0;
+  }
+
+  .related-tool-card h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    transition: var(--transition-smooth);
+  }
+
+  .related-tool-card:hover h4 {
+    color: var(--primary);
+  }
+
+  .related-tool-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>
+
+<!-- Inject JSON-LD Schema Markup for AEO -->
+<script type="application/ld+json" set:html={JSON.stringify(resizeSchema)} />

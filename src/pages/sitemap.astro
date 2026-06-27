@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="HTML Sitemap - Free Image Utilities Directory" 
+  description="Explore Arcdome's directory of local, browser-based image utility tools. Quick links to our image compressor, converter, resizer, support, and policies."
+>
+  <div class="sitemap-page-container">
+    <div class="sitemap-header">
+      <h1 class="page-title">Website Sitemap</h1>
+      <p class="section-subtitle">
+        Find your way around Arcdome. Access all of our secure, client-side image optimization tools and information pages in one place.
+      </p>
+    </div>
+
+    <div class="sitemap-grid">
+      <!-- Section 1: Core Image Tools -->
+      <section class="glass-card sitemap-card">
+        <div class="card-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h2>Free Client-Side Image Tools</h2>
+        <p class="card-intro">Optimize your files without uploading them. Speed up web pages and shrink file sizes in milliseconds.</p>
+        <ul class="sitemap-links">
+          <li>
+            <a href="/compress-image">Image Compressor Online</a>
+            <span>Reduce image file size to a target limit (like 100KB, 50KB, or 20KB) with custom quality controls.</span>
+          </li>
+          <li>
+            <a href="/convert-image">Image Converter Online</a>
+            <span>Batch convert images between PNG, JPEG, WEBP, and AVIF formats client-side in your browser.</span>
+          </li>
+          <li>
+            <a href="/resize-image">Image Resizer & Scaler</a>
+            <span>Resize pixel dimensions (width/height), scale down by percentage, and crop images with aspect ratio lock.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 2: Company & Support -->
+      <section class="glass-card sitemap-card">
+        <div class="card-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <h2>Company & Information</h2>
+        <p class="card-intro">Learn about our privacy-first local processing technology, search optimization, and contact details.</p>
+        <ul class="sitemap-links">
+          <li>
+            <a href="/">Arcdome Homepage</a>
+            <span>Introduction to our serverless image optimization platform.</span>
+          </li>
+          <li>
+            <a href="/about">About Arcdome</a>
+            <span>Our mission, client-side architecture, technology stack, and privacy commitments.</span>
+          </li>
+          <li>
+            <a href="/contact">Contact Support</a>
+            <span>Submit feature requests, report image rendering bugs, or reach out for inquiries.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3: Legal & Technical -->
+      <section class="glass-card sitemap-card">
+        <div class="card-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <h2>Legal Documents & Raw Data</h2>
+        <p class="card-intro">Read our security guidelines, user constraints, and indexable crawlers data maps.</p>
+        <ul class="sitemap-links">
+          <li>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span>Detailed explanation of why we process all image calculations in local RAM with zero server logging.</span>
+          </li>
+          <li>
+            <a href="/terms-of-service">Terms of Service</a>
+            <span>Terms of use, license policies, disclaimers of warranties, and permitted client usage.</span>
+          </li>
+          <li>
+            <a href="/sitemap.xml" target="_blank">XML Sitemap (For Search Engines)</a>
+            <span>Raw indexable XML sitemap directory listing url routes and priorities.</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .sitemap-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .sitemap-header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .sitemap-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .sitemap-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+    gap: 20px;
+  }
+
+  .card-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  .sitemap-card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  .card-intro {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .sitemap-links {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .sitemap-links li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sitemap-links li a {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    width: fit-content;
+  }
+
+  .sitemap-links li a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+  }
+
+  .sitemap-links li span {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+</style>

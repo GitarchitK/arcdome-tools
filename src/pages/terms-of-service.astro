@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Terms of Service" 
+  description="Terms of Service for Arcdome. Learn about guidelines, conditions, and usage rules of our browser-based image tools."
+>
+  <div class="legal-page">
+    <div class="header-section">
+      <h1 class="page-title">Terms of Service</h1>
+      <p class="last-updated">Last Updated: June 26, 2026</p>
+    </div>
+
+    <div class="glass-card legal-content">
+      <section>
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By accessing and using <a href="/">arcdome.online</a> ("Website", "Service"), you agree to be bound by these Terms of Service. If you do not agree to all of the terms and conditions stated on this page, do not continue to use this Website.
+        </p>
+      </section>
+
+      <section class="highlight-box">
+        <h2>2. Permitted Use</h2>
+        <p>
+          Arcdome provides client-side image compression, conversion, and resizing tools. 
+        </p>
+        <ul>
+          <li>You are permitted to use our tools for both personal and commercial projects.</li>
+          <li>There are no limits on the number of files you can process.</li>
+          <li>All file transformations are performed inside your browser. You are responsible for ensuring that you have the legal right or permission to edit the files you process.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Prohibited Activities</h2>
+        <p>
+          You agree not to use the Website to:
+        </p>
+        <ul>
+          <li>Attempt to disrupt, reverse-engineer, or interfere with the Website's code or performance.</li>
+          <li>Use automated scripts or bots to access or scrape our layout or styling features.</li>
+          <li>Use the Website in any manner that violates local, state, national, or international laws.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Intellectual Property Rights</h2>
+        <p>
+          Unless otherwise stated, Arcdome and/or its licensors own the intellectual property rights for all material, code, brand names, and styling assets on Arcdome. All intellectual property rights are reserved. You may access this from Arcdome for your own personal use subjected to restrictions set in these terms and conditions.
+        </p>
+        <p>
+          You must not republish material, sell, rent, sub-license, duplicate, or redistribute content from Arcdome without express written consent.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Disclaimer of Warranties</h2>
+        <p>
+          The Website and its tools are provided "as is," with all faults, and Arcdome makes no express or implied representations or warranties of any kind related to this Website or the materials contained on it. 
+        </p>
+        <p>
+          We do not guarantee that the tools will meet your specific size requirements perfectly or that the conversion process will be error-free. Because all processing is client-side, the speed and success of operations depend heavily on your browser capabilities, active memory, and processor capacity.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Limitation of Liability</h2>
+        <p>
+          In no event shall Arcdome, nor any of its developers, officers, or employees, be held liable for anything arising out of or in any way connected with your use of this Website. Arcdome shall not be held liable for any indirect, consequential, or special liability arising out of or in any way related to your use of this Website, including data loss, hardware overheating, or image corruption during processing.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Indemnification</h2>
+        <p>
+          You hereby indemnify to the fullest extent Arcdome from and against any and/or all liabilities, costs, demands, causes of action, damages, and expenses arising in any way related to your breach of any of the provisions of these Terms.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Changes to Terms</h2>
+        <p>
+          Arcdome is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review these Terms on a regular basis to ensure you understand all terms and conditions governing the use of this Website.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Contact Us</h2>
+        <p>
+          If you have any questions about these Terms of Service, please contact us at <a href="mailto:support@arcdome.online">support@arcdome.online</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .header-section {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .legal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  ul {
+    list-style-type: none;
+    margin-bottom: 16px;
+    padding-left: 8px;
+  }
+
+  ul li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  ul li::before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .highlight-box {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .highlight-box h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+  }
+
+  @media (max-width: 600px) {
+    .legal-content {
+      padding: 24px;
+    }
+    
+    .page-title {
+      font-size: 2.25rem;
+    }
+  }
+</style>

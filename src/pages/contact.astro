@@ -1,0 +1,362 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Contact Us" 
+  description="Contact the Arcdome support team. Send us your feedback, bug reports, or partnership questions."
+>
+  <div class="contact-page">
+    <div class="header-section">
+      <h1 class="page-title">Contact Support</h1>
+      <p class="section-subtitle">Have questions, feedback, or a bug report? Drop us a line.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info-panel">
+        <div class="glass-card info-card">
+          <h2>Get in Touch</h2>
+          <p>
+            Whether you want to report a issue with image rendering, suggest a feature, or explore business collaboration, we are here to listen.
+          </p>
+
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="info-text">
+                <h3>Official Support Email</h3>
+                <a href="mailto:support@arcdome.online">support@arcdome.online</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="info-text">
+                <h3>Absolute Privacy</h3>
+                <p>We do not store your uploaded images on our servers, so there is no upload data to request or wipe.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-panel">
+        <div class="glass-card form-card">
+          <div id="contact-success" class="success-message" style="display: none;">
+            <div class="success-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h2>Message Sent!</h2>
+            <p>Thank you for reaching out. We have received your message and our support team will respond to you at the email address provided within 24-48 hours.</p>
+            <button class="btn btn-primary" id="btn-reset-form">Send Another Message</button>
+          </div>
+
+          <form id="contact-form" class="form-layout">
+            <h2>Send a Message</h2>
+            
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Bug report / General feedback" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <span>Send Message</span>
+              <svg class="submit-spinner" style="display: none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+                <path d="M12 2v4" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successPanel = document.getElementById('contact-success');
+  const resetBtn = document.getElementById('btn-reset-form');
+
+  if (form && successPanel) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('.form-submit') as HTMLButtonElement;
+      const btnText = submitBtn.querySelector('span');
+      const spinner = submitBtn.querySelector('.submit-spinner') as SVGElement;
+      
+      if (submitBtn && btnText && spinner) {
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.textContent = "Sending...";
+        spinner.style.display = "inline-block";
+        spinner.classList.add("spin");
+
+        // Simulate API call
+        setTimeout(() => {
+          // Hide form, show success
+          form.style.display = "none";
+          successPanel.style.display = "flex";
+          
+          // Reset button state
+          submitBtn.disabled = false;
+          btnText.textContent = "Send Message";
+          spinner.style.display = "none";
+          spinner.classList.remove("spin");
+          
+          // Clear inputs
+          form.reset();
+        }, 1200);
+      }
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        successPanel.style.display = "none";
+        form.style.display = "flex";
+      });
+    }
+  }
+</script>
+
+<style>
+  .contact-page {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .header-section {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .info-ad {
+      display: none; /* Hide rectangle ad placeholder on small screens */
+    }
+  }
+
+  /* Info Card */
+  .info-card {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-color: var(--border-color);
+  }
+
+  .info-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(0, 242, 254, 0.08);
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-text h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .info-text p, .info-text a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .info-text a:hover {
+    color: var(--primary);
+  }
+
+  /* Form Card */
+  .form-card {
+    padding: 40px;
+  }
+
+  .form-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-layout h2 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+  }
+
+  .form-group input, .form-group textarea {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(2, 132, 199, 0.1);
+  }
+
+  .form-submit {
+    align-self: flex-start;
+    min-width: 160px;
+  }
+
+  .submit-spinner {
+    margin-left: 8px;
+  }
+
+  .submit-spinner.spin {
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Success Message Drawer */
+  .success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(56, 176, 0, 0.15);
+    border: 2px solid var(--accent-green);
+    color: var(--accent-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 8px rgba(56, 176, 0, 0.3));
+  }
+
+  .success-message h2 {
+    font-size: 1.8rem;
+    color: var(--text-main);
+  }
+
+  .success-message p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 400px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @media (max-width: 600px) {
+    .form-card {
+      padding: 24px;
+    }
+  }
+</style>

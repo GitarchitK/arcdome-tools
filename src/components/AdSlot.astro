@@ -1,0 +1,119 @@
+---
+interface Props {
+  slotId?: string; // Google AdSense Ad Slot ID
+  format?: 'auto' | 'fluid' | 'rectangle' | 'horizontal';
+  className?: string;
+}
+
+const { slotId, format = 'auto', className = '' } = Astro.props;
+
+// Demo AdSense Publisher ID (Replace with your actual ca-pub-XXXXXXXXXXXXXXXX once approved)
+const publisherId = "ca-pub-placeholder";
+---
+
+<div class={`ad-container ${format} ${className}`}>
+  <!-- AdSense Script Element (Rendered only if slotId is provided) -->
+  {slotId ? (
+    <>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client={publisherId}
+           data-ad-slot={slotId}
+           data-ad-format={format}
+           data-full-width-responsive="true">
+      </ins>
+      <script is:inline>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </>
+  ) : (
+    <div class="ad-placeholder-visual">
+      <div class="ad-badge">ADVERTISEMENT</div>
+      <div class="ad-info">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ad-icon">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <line x1="12" y1="4" x2="12" y2="20" />
+        </svg>
+        <span>Google AdSense Slot ({format.toUpperCase()})</span>
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .ad-container {
+    margin: 32px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Different shape constraints for placeholders */
+  .ad-container.horizontal {
+    max-width: 970px;
+    height: 90px;
+  }
+
+  .ad-container.rectangle {
+    max-width: 336px;
+    height: 280px;
+  }
+
+  .ad-container.auto {
+    max-width: 100%;
+    min-height: 120px;
+  }
+
+  /* Placeholder visual styling */
+  .ad-placeholder-visual {
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    background: rgba(15, 23, 42, 0.02);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px dashed rgba(15, 23, 42, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    transition: var(--transition-smooth);
+  }
+
+  .ad-placeholder-visual:hover {
+    border-color: var(--border-hover);
+    background: rgba(2, 132, 199, 0.02);
+  }
+
+  .ad-badge {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: rgba(15, 23, 42, 0.25);
+  }
+
+  .ad-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ad-icon {
+    opacity: 0.4;
+  }
+
+  /* Hide placeholder if real AdSense container has height (meaning an ad actually loaded) */
+  ins.adsbygoogle[data-ad-status="filled"] + .ad-placeholder-visual {
+    display: none;
+  }
+</style>

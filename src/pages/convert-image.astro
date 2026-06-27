@@ -1,0 +1,403 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImageConverter from '../components/ImageConverter.astro';
+
+// WebApplication schema data for AEO (Answer Engine Optimization)
+const convertSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arcdome Image Converter",
+  "url": "https://arcdome.online/convert-image",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript and HTML5 Canvas support.",
+  "description": "Convert image formats online instantly. Transform PNG to WebP, JPEG to WEBP, WebP to JPG, or WEBP to AVIF securely in your browser without any server uploads.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "permissions": "Processes files entirely in local RAM. No server uploads."
+};
+---
+
+<Layout 
+  title="Convert PNG to WebP Online Free - JPG, PNG Converter" 
+  description="Convert image formats online instantly. Transform PNG to WebP, JPEG to WEBP, WebP to JPG, or WEBP to AVIF securely in your browser. Batch conversion supported."
+>
+  <div class="tool-page-container">
+    <div class="tool-header">
+      <h1 class="tool-title">Convert Image Format</h1>
+      <p class="tool-subtitle">Convert JPG, PNG, and WEBP files instantly in your browser. Unlimited, secure, and private.</p>
+    </div>
+
+    <!-- AEO TL;DR Quick Summary Box -->
+    <section class="aeo-summary-section">
+      <div class="glass-card summary-box">
+        <span class="summary-badge">⚡ Quick Summary / TL;DR</span>
+        <p>
+          Use this tool to <strong>convert PNG to WebP, JPG, or AVIF online</strong>. The converter processes images entirely client-side inside browser memory using HTML5 Canvas rendering. It outputs web-ready, lightweight formats in milliseconds, reducing bandwidth overhead without uploading your files. No visual content is transmitted to servers, ensuring complete privacy.
+        </p>
+      </div>
+    </section>
+
+    <!-- Active Tool Container -->
+    <div class="active-tool-card">
+      <ImageConverter />
+    </div>
+
+    <!-- Informative SEO & Guide Section -->
+    <section class="tool-info-section glass-card">
+      <div class="info-block">
+        <h2>How to Convert Image Formats Online</h2>
+        <p>
+          Convert files to web-optimized formats in seconds. Here is how to use our free image converter:
+        </p>
+        <ol class="info-steps">
+          <li>
+            <strong>Select Files:</strong> Drag and drop your JPG, PNG, or WEBP images into the box above, or click "Browse Files".
+          </li>
+          <li>
+            <strong>Choose Format:</strong> Under "Converter Settings" in the left sidebar, choose your desired output format (WEBP, JPEG, PNG, or AVIF).
+          </li>
+          <li>
+            <strong>Process:</strong> Click the "Convert Images" button. The conversions are processed instantly.
+          </li>
+          <li>
+            <strong>Download:</strong> Save your converted files locally.
+          </li>
+        </ol>
+      </div>
+
+      <div class="info-block">
+        <h2>Understanding Image Formats: Which Should You Choose?</h2>
+        <p>
+          Converting to the correct image format can drastically improve page load speed and SEO ranking for your blog or website.
+        </p>
+        <div class="format-comparison-grid">
+          <div class="format-item">
+            <span class="format-badge png">PNG</span>
+            <h4>Lossless Quality</h4>
+            <p>Best for screenshots, line drawings, and graphics with text or transparent backgrounds. PNG maintains 100% details but results in very large file sizes.</p>
+          </div>
+          <div class="format-item">
+            <span class="format-badge jpg">JPG</span>
+            <h4>Universal Compatibility</h4>
+            <p>Best for photographs and rich color imagery where compatibility is key. JPG uses lossy compression to reduce file size but does not support transparency.</p>
+          </div>
+          <div class="format-item">
+            <span class="format-badge webp">WEBP</span>
+            <h4>Next-Gen Web Standard</h4>
+            <p>Developed by Google, WebP provides superior lossy and lossless compression. It is roughly 25-30% smaller than JPEG at identical quality, and supports transparency. Recommended for general web use.</p>
+          </div>
+          <div class="format-item">
+            <span class="format-badge avif">AVIF</span>
+            <h4>Ultra Compression</h4>
+            <p>The newest open-source format, offering even greater compression efficiency than WebP (up to 50% smaller than JPEG). Ideal for modern browsers and high-performance sites.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Cross Navigation -->
+    <section class="related-tools-section">
+      <h3 class="related-title">Other Free Image Utilities</h3>
+      <div class="related-grid">
+        <a href="/compress-image" class="glass-card related-tool-card">
+          <div class="related-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+          </div>
+          <div>
+            <h4>Image Compressor</h4>
+            <p>Reduce file size in KB or MB with target size limits.</p>
+          </div>
+        </a>
+
+        <a href="/resize-image" class="glass-card related-tool-card">
+          <div class="related-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
+              <path d="M7 2v20M17 2v20M2 7h20M2 17h20" />
+            </svg>
+          </div>
+          <div>
+            <h4>Image Resizer</h4>
+            <p>Scale dimensions (pixels) or reduce image size by percentage.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .tool-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tool-header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .tool-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+  }
+
+  .tool-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .tool-top-ad {
+    margin: 16px 0;
+  }
+
+  .tool-bottom-ad {
+    margin: 24px 0;
+  }
+
+  .active-tool-card {
+    margin-bottom: 16px;
+  }
+
+  /* SEO Informative Section */
+  .tool-info-section {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    border-radius: 8px;
+  }
+
+  .info-block h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  .info-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  /* Custom numbered lists */
+  .info-steps {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .info-steps li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 36px;
+  }
+
+  .info-steps li::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  .info-steps {
+    counter-reset: step-counter;
+  }
+
+  /* Comparison details */
+  .format-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 768px) {
+    .format-comparison-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .format-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .format-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+  }
+
+  .format-badge.png { background: #ff758f; }
+  .format-badge.jpg { background: #4facfe; }
+  .format-badge.webp { background: #38b000; }
+  .format-badge.avif { background: #ffb703; color: #080b11; }
+
+  .format-item h4 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+  }
+
+  .format-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .tool-info-section {
+      padding: 24px;
+    }
+    
+    .tool-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* AEO Summary Box */
+  .aeo-summary-section {
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .summary-box {
+    border-left: 4px solid var(--primary) !important;
+    background: #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .summary-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+  }
+
+  .summary-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  /* Related Tools Cross-Navigation */
+  .related-tools-section {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  .related-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .related-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    padding: 20px;
+    transition: var(--transition-smooth);
+  }
+
+  .related-tool-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .related-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: #f1f5f9;
+    color: #475569;
+    flex-shrink: 0;
+  }
+
+  .related-tool-card h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    transition: var(--transition-smooth);
+  }
+
+  .related-tool-card:hover h4 {
+    color: var(--primary);
+  }
+
+  .related-tool-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>
+
+<!-- Inject JSON-LD Schema Markup for AEO -->
+<script type="application/ld+json" set:html={JSON.stringify(convertSchema)} />

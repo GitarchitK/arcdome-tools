@@ -1,0 +1,377 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+
+// WebApplication schema data for AEO (Answer Engine Optimization)
+const compressSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arcdome Image Compressor",
+  "url": "https://arcdome.online/compress-image",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript and HTML5 Canvas support.",
+  "description": "Compress images to a target size in KB or MB (such as 100KB, 50KB, or 20KB). Performs fast, secure client-side compression on JPEG, PNG, and WebP formats without uploading files to any server.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "permissions": "Processes files entirely in local RAM. No server uploads."
+};
+---
+
+<Layout 
+  title="Compress Image to 100KB, 50KB, 20KB Online Free" 
+  description="Reduce image size online instantly. Compress PNG, JPG, and WEBP files to a specific target size in KB or MB (e.g. 20KB, 50KB, 100KB) entirely in your browser."
+>
+  <div class="tool-page-container">
+    <div class="tool-header">
+      <h1 class="tool-title">Compress Image Online</h1>
+      <p class="tool-subtitle">Reduce file sizes in KB or MB instantly. Safe, private, browser-based compression.</p>
+    </div>
+
+    <!-- AEO TL;DR Quick Summary Box -->
+    <section class="aeo-summary-section">
+      <div class="glass-card summary-box">
+        <span class="summary-badge">⚡ Quick Summary / TL;DR</span>
+        <p>
+          Use this tool to <strong>compress images to 100KB, 50KB, or 20KB</strong> client-side. The compressor processes JPEG, PNG, and WebP files locally inside your browser memory using the HTML5 Canvas API. By executing a fast binary search on quality settings and resolution scaling, it fits your image under your target KB size limit. No images are uploaded to any server, guaranteeing 100% privacy and offline capability.
+        </p>
+      </div>
+    </section>
+
+    <!-- Active Tool Container -->
+    <div class="active-tool-card">
+      <ImageCompressor />
+    </div>
+
+    <!-- Informative SEO & Guide Section -->
+    <section class="tool-info-section glass-card">
+      <div class="info-block">
+        <h2>How to Compress Images to a Specific File Size (KB / MB)</h2>
+        <p>
+          Need to upload a passport photo under 50KB? Or a document scan under 100KB? Arcdome makes this incredibly simple:
+        </p>
+        <ol class="info-steps">
+          <li>
+            <strong>Upload:</strong> Drag and drop your JPEG, PNG, or WEBP files into the upload box above, or click "Browse Files".
+          </li>
+          <li>
+            <strong>Set Target Size:</strong> Under settings, select "Target Size". Enter your target value (e.g., 100) and choose the unit (KB or MB).
+          </li>
+          <li>
+            <strong>Convert (Optional):</strong> If your input is a large PNG, choose output format WEBP or JPG, since PNG is a lossless format and cannot be compressed beyond standard ratios.
+          </li>
+          <li>
+            <strong>Process:</strong> Click "Compress Images". Our algorithm will perform a fast binary search on quality settings and automatically downscale resolution if needed to fit under your limit.
+          </li>
+          <li>
+            <strong>Download:</strong> Click the "Download" button next to each processed item to retrieve your optimized image instantly.
+          </li>
+        </ol>
+      </div>
+
+      <div class="info-block">
+        <h2>Why Use Local Image Compression?</h2>
+        <p>
+          Most online image compressors require you to upload your files to their servers. Here's why Arcdome's browser-only compression is the superior choice:
+        </p>
+        <div class="features-comparison">
+          <div class="comp-item">
+            <h4>100% Secure & Confidential</h4>
+            <p>Your photos are read directly into browser RAM and calculated locally. They never touch a remote server, making this safe for confidential documents, IDs, and signatures.</p>
+          </div>
+          <div class="comp-item">
+            <h4>No Upload & Download Latency</h4>
+            <p>Because there is no network transfer of large raw photos, compression starts instantly and completes in milliseconds. Perfect for users with slow internet connections.</p>
+          </div>
+          <div class="comp-item">
+            <h4>No File Count Limits</h4>
+            <p>Since we do not host server clusters or pay for incoming bandwidth, we do not restrict how many files you can process. Compress hundreds of images completely free.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Cross Navigation -->
+    <section class="related-tools-section">
+      <h3 class="related-title">Other Free Image Utilities</h3>
+      <div class="related-grid">
+        <a href="/convert-image" class="glass-card related-tool-card">
+          <div class="related-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+              <path d="m15 5 4 4" />
+            </svg>
+          </div>
+          <div>
+            <h4>Image Converter</h4>
+            <p>Convert images to JPG, PNG, WEBP, or AVIF formats client-side.</p>
+          </div>
+        </a>
+
+        <a href="/resize-image" class="glass-card related-tool-card">
+          <div class="related-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
+              <path d="M7 2v20M17 2v20M2 7h20M2 17h20" />
+            </svg>
+          </div>
+          <div>
+            <h4>Image Resizer</h4>
+            <p>Scale dimensions (pixels) or reduce image size by percentage.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .tool-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tool-header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .tool-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+  }
+
+  .tool-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .tool-top-ad {
+    margin: 16px 0;
+  }
+
+  .tool-bottom-ad {
+    margin: 24px 0;
+  }
+
+  .active-tool-card {
+    margin-bottom: 16px;
+  }
+
+  /* SEO Informative Section */
+  .tool-info-section {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    border-radius: 8px;
+  }
+
+  .info-block h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  .info-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  /* Custom numbered lists */
+  .info-steps {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .info-steps li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 36px;
+  }
+
+  .info-steps li::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  .info-steps {
+    counter-reset: step-counter;
+  }
+
+  /* Grid details */
+  .features-comparison {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 800px) {
+    .features-comparison {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .comp-item h4 {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+  }
+
+  .comp-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .tool-info-section {
+      padding: 24px;
+    }
+    
+    .tool-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* AEO Summary Box */
+  .aeo-summary-section {
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .summary-box {
+    border-left: 4px solid var(--primary) !important;
+    background: #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .summary-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+  }
+
+  .summary-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  /* Related Tools Cross-Navigation */
+  .related-tools-section {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  .related-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .related-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    padding: 20px;
+    transition: var(--transition-smooth);
+  }
+
+  .related-tool-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .related-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: #f1f5f9;
+    color: #475569;
+    flex-shrink: 0;
+  }
+
+  .related-tool-card h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    transition: var(--transition-smooth);
+  }
+
+  .related-tool-card:hover h4 {
+    color: var(--primary);
+  }
+
+  .related-tool-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>
+
+<!-- Inject JSON-LD Schema Markup for AEO -->
+<script type="application/ld+json" set:html={JSON.stringify(compressSchema)} />

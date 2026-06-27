@@ -1,0 +1,488 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// FAQ schema data for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does Arcdome compress files without uploading them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Arcdome uses modern HTML5 Canvas and browser Javascript APIs. When you select or drop files, they are read into browser memory and calculated locally. No image data is ever transferred to our servers, keeping your files completely secure and private."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compress images to a specific file size like 100KB or 50KB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Our image compressor features a 'Target Size' mode. You can enter any size in KB or MB, and our canvas engine will run an automated binary search to calculate the optimal quality and scale combination to fit your quota."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit on the number of images I can compress or convert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Because all compression calculations are offloaded to your local processor, we do not incur server bandwidth costs. You can process as many images as you need, entirely free of charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What image formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We currently support input uploads of PNG, JPG/JPEG, and WEBP. You can convert these formats to JPEG, PNG, WEBP, or AVIF (browser capability dependent)."
+      }
+    }
+  ]
+};
+
+// WebApplication schema data for AEO (Answer Engine Optimization)
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arcdome",
+  "url": "https://arcdome.online/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 Canvas support, JavaScript.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "permissions": "Processes images locally inside the browser. No file transfers or uploads to servers."
+};
+---
+
+<Layout 
+  title="Free Browser-Based Image Compressor, Resizer & Converter" 
+  description="Compress, convert, and resize images locally in your browser. Limitless file sizes, 100% private, free, and ultra-fast. No servers, no uploads."
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1 class="hero-title">Optimize Your Images Instantly</h1>
+    <p class="hero-subtitle">
+      Arcdome processes your photos entirely within your browser. Compress sizes in KB or MB, convert formats, and scale dimensions instantly. 100% private and secure.
+    </p>
+    <div class="hero-actions">
+      <a href="/compress-image" class="btn btn-primary">Compress Image Now</a>
+      <a href="#tools-grid" class="btn btn-secondary">Explore Tools</a>
+    </div>
+  </section>
+
+  <!-- Tools Grid Section -->
+  <section id="tools-grid" class="tools-grid-section">
+    <h2 class="section-title">High-Performance Image Tools</h2>
+    <p class="section-subtitle">Select a tool to start optimizing. All operations are free, unlimited, and run 100% client-side.</p>
+    
+    <div class="grid-container">
+      
+      <!-- Tool 1: Compressor -->
+      <div class="glass-card tool-card">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="17 8 12 3 7 8" />
+            <line x1="12" y1="3" x2="12" y2="15" />
+          </svg>
+        </div>
+        <h3>Image Compressor</h3>
+        <p>Reduce file size in KB or MB. Perfect for government forms, applications, or web speed optimization with custom target size quotas.</p>
+        <a href="/compress-image" class="btn btn-secondary w-full tool-link">Open Compressor</a>
+      </div>
+
+      <!-- Tool 2: Converter -->
+      <div class="glass-card tool-card">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+            <path d="m15 5 4 4" />
+          </svg>
+        </div>
+        <h3>Image Converter</h3>
+        <p>Convert images between formats in milliseconds. Switch between PNG, JPG, and WEBP to optimize loading speed.</p>
+        <a href="/convert-image" class="btn btn-secondary w-full tool-link">Open Converter</a>
+      </div>
+
+      <!-- Tool 3: Resizer -->
+      <div class="glass-card tool-card">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
+            <path d="M7 2v20M17 2v20M2 7h20M2 17h20" />
+          </svg>
+        </div>
+        <h3>Image Resizer</h3>
+        <p>Resize pixel dimensions or downscale images by percentage. Maintain perfect aspect ratios for website templates and assets.</p>
+        <a href="/resize-image" class="btn btn-secondary w-full tool-link">Open Resizer</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AEO TL;DR Quick Summary Box -->
+  <section class="aeo-summary-section">
+    <div class="glass-card summary-box">
+      <span class="summary-badge">⚡ Quick Summary / TL;DR</span>
+      <p>
+        <strong>Arcdome</strong> is a browser-native multimedia application for secure client-side image compression, conversion, and resizing. By executing all transformations locally inside sandboxed browser memory (RAM), your files never leave your device. The platform is completely free, does not store user data, requires no installation, and works offline.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Features Detail / Privacy Section -->
+  <section class="privacy-detail-section">
+    <div class="glass-card privacy-detail-card">
+      <div class="detail-text">
+        <h2>Why Browser-Based Optimization is Better</h2>
+        <p>
+          Unlike standard image tools that upload your files to server queues, Arcdome processes all files locally inside your browser sandbox. 
+        </p>
+        
+        <div class="benefit-points">
+          <div class="benefit-point">
+            <span class="benefit-icon">✓</span>
+            <div>
+              <h4>100% Privacy Protection</h4>
+              <p>Your photos are computed in RAM and never touch remote servers. Perfect for personal IDs, scans, and signatures.</p>
+            </div>
+          </div>
+          <div class="benefit-point">
+            <span class="benefit-icon">✓</span>
+            <div>
+              <h4>Zero Bandwidth Overhead</h4>
+              <p>Skip slow image uploads and downloads. Operations are instant regardless of your internet connection speed.</p>
+            </div>
+          </div>
+          <div class="benefit-point">
+            <span class="benefit-icon">✓</span>
+            <div>
+              <h4>No File Limits or Queues</h4>
+              <p>Since we offload processing to your local device, you can resize and compress unlimited files without queues.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="faq-section">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">Got questions? Learn more about local compression security, specifications, and format capabilities.</p>
+    
+    <div class="faq-accordion">
+      
+      <div class="faq-item glass-card">
+        <details>
+          <summary>
+            How does Arcdome compress files without uploading them?
+            <span class="accordion-icon">+</span>
+          </summary>
+          <p>
+            Arcdome runs entirely in your web browser. When you select an image, it is read into the browser's RAM using JavaScript's FileReader API. We then draw the image onto an HTML5 canvas element and export it using custom quality parameters via canvas.toBlob(). The entire calculation is done on your local hardware.
+          </p>
+        </details>
+      </div>
+
+      <div class="faq-item glass-card">
+        <details>
+          <summary>
+            Can I compress images to a specific file size like 100KB or 50KB?
+            <span class="accordion-icon">+</span>
+          </summary>
+          <p>
+            Absolutely. Our 'Target Size' algorithm is specifically designed for this. It takes your target size (e.g. 100KB) and runs an automated, smart binary search. It tests output sizes at different qualities (e.g., 75%, 38%, 56%) and, if quality reduction is insufficient, scales down the dimensions slightly until the image fits exactly under your target threshold.
+          </p>
+        </details>
+      </div>
+
+      <div class="faq-item glass-card">
+        <details>
+          <summary>
+            Is there a limit on file sizes or amount of uploads?
+            <span class="accordion-icon">+</span>
+          </summary>
+          <p>
+            We enforce a broad 15MB file size limit to prevent your browser tab from crashing due to memory limits on mobile devices. Beyond that, there are no restrictions. You can process thousands of files without paying or waiting in queues.
+          </p>
+        </details>
+      </div>
+
+      <div class="faq-item glass-card">
+        <details>
+          <summary>
+            Is my personal data safe?
+            <span class="accordion-icon">+</span>
+          </summary>
+          <p>
+            Yes, completely. Since the files are processed inside your browser sandbox and never sent over the network, no one—not even us—can see your images. This is the safest way to resize government forms, passport copies, and private snapshots.
+          </p>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Inject JSON-LD Schema Markup for FAQ Page & WebApplication -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    padding: 48px 0 64px;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  @media (max-width: 600px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Tools Grid Section */
+  .tools-grid-section {
+    padding: 48px 0;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .tool-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+    gap: 16px;
+  }
+
+  .tool-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  .tool-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .tool-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .tool-link {
+    margin-top: auto;
+  }
+
+  /* Privacy Detail Section */
+  .privacy-detail-section {
+    padding: 48px 0;
+  }
+
+  .privacy-detail-card {
+    padding: 40px;
+  }
+
+  .detail-text h2 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+  }
+
+  .detail-text p {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .benefit-points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .benefit-point {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .benefit-icon {
+    color: var(--accent-green);
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .benefit-point h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .benefit-point p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* FAQ Accordion Section */
+  .faq-section {
+    padding: 48px 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .faq-item {
+    padding: 0;
+    border-color: var(--border-color);
+  }
+
+  details {
+    padding: 16px 20px;
+    width: 100%;
+  }
+
+  summary {
+    list-style: none;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion-icon {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  details[open] .accordion-icon {
+    transform: rotate(45deg);
+  }
+
+  details p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 12px;
+    color: var(--text-muted);
+  }
+
+  /* AEO Summary Box */
+  .aeo-summary-section {
+    margin-bottom: 32px;
+    width: 100%;
+  }
+
+  .summary-box {
+    border-left: 4px solid var(--primary) !important;
+    background: #f1f5f9;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .summary-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+  }
+
+  .summary-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  /* Mobile Style Overrides */
+  @media (max-width: 600px) {
+    .hero-section {
+      padding: 24px 0 20px;
+    }
+    .hero-subtitle {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    .tools-grid-section {
+      padding: 16px 0;
+    }
+  }
+</style>

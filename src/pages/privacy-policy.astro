@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Privacy Policy" 
+  description="Privacy policy for Arcdome. Learn how we handle your data, our secure client-side image processing, and local storage cookie guidelines."
+>
+  <div class="legal-page">
+    <div class="header-section">
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="last-updated">Last Updated: June 26, 2026</p>
+    </div>
+
+    <div class="glass-card legal-content">
+      <section>
+        <h2>1. Introduction</h2>
+        <p>
+          At <strong>Arcdome</strong>, accessible from <a href="/">arcdome.online</a>, the privacy of our visitors is one of our main priorities. This Privacy Policy document contains types of information that is collected and recorded by Arcdome and how we use it.
+        </p>
+        <p>
+          If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through our email at <a href="mailto:support@arcdome.online">support@arcdome.online</a>.
+        </p>
+      </section>
+
+      <section class="highlight-box">
+        <h2>2. Client-Side Image Processing Policy</h2>
+        <p>
+          <strong>Arcdome provides 100% browser-based tools.</strong> 
+        </p>
+        <p>
+          When you use our image compression, conversion, or resizing tools, all image processing occurs entirely within your web browser using HTML5 Canvas and Javascript APIs. 
+          We do <strong>NOT</strong> upload, transfer, process, or store your image files on our servers. Your original and processed images never leave your local device, ensuring maximum security and absolute privacy.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Log Files</h2>
+        <p>
+          Arcdome follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this as a part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. No Commercial Tracking or Ads Cookies</h2>
+        <p>
+          Arcdome is an ad-free service. We do not use third-party behavioral tracking cookies, profiling scripts, or target-marketing pixels. Any local storage or session cookies used are solely to remember your preferences (such as tool settings or cookie approval choices) and are stored locally inside your browser.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. No Advertising Partners</h2>
+        <p>
+          We do not partner with third-party ad networks, and no marketing tags or beacons are embedded in our codebase. Your usage data remains completely isolated and is not shared with or sold to advertising conglomerates.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Third Party Privacy Policies</h2>
+        <p>
+          Arcdome's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
+        </p>
+        <p>
+          You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. GDPR Data Protection Rights (EEA Users)</h2>
+        <p>
+          We want to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
+        </p>
+        <ul>
+          <li><strong>The right to access</strong> – You have the right to request copies of your personal data.</li>
+          <li><strong>The right to rectification</strong> – You have the right to request that we correct any information you believe is inaccurate.</li>
+          <li><strong>The right to erasure</strong> – You have the right to request that we erase your personal data, under certain conditions.</li>
+          <li><strong>The right to restrict processing</strong> – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+        </ul>
+        <p>
+          Since we do not collect any personal info or images, we do not hold database records that we can retrieve, edit, or delete.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Children's Information</h2>
+        <p>
+          Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+        </p>
+        <p>
+          Arcdome does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .header-section {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .legal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  ul {
+    list-style-type: none;
+    margin-bottom: 16px;
+    padding-left: 8px;
+  }
+
+  ul li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  ul li::before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .highlight-box {
+    background: rgba(0, 242, 254, 0.03);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .highlight-box h2 {
+    border-bottom-color: rgba(0, 242, 254, 0.2);
+    color: var(--primary);
+  }
+
+  @media (max-width: 600px) {
+    .legal-content {
+      padding: 24px;
+    }
+    
+    .page-title {
+      font-size: 2.25rem;
+    }
+  }
+</style>
