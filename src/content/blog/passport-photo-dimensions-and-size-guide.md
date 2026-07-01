@@ -1,7 +1,7 @@
 ---
 title: "Passport Photo Specifications and File Size Guidelines"
 description: "A complete overview of passport and visa photo size requirements. Learn how to resize and compress photos to exact millimeter specs."
-pubDate: "2026-06-27"
+pubDate: "2026-06-29"
 author: "Archit"
 tags: ["compression", "guides"]
 keywords: "passport photo dimensions, visa photo size limit, compress passport photo, government form photo"

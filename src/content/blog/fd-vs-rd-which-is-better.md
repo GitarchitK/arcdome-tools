@@ -1,7 +1,7 @@
 ---
 title: "FD vs. RD: Which Investment Option is Best for You?"
 description: "Compare Fixed Deposits (FD) and Recurring Deposits (RD). Learn the differences in investment structures, compounding, and rates to pick the best."
-pubDate: "2026-06-23"
+pubDate: "2026-06-20"
 author: "Archit"
 tags: ["comparison", "finance"]
 keywords: "fd vs rd, fixed deposit vs recurring deposit, which is better fd or rd, differences fd rd"

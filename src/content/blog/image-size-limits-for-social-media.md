@@ -1,7 +1,7 @@
 ---
 title: "Social Media Image Dimensions and File Size Limits (2026)"
 description: "Avoid blurry or cropped posts. The complete guide to dimensions and size limits for Facebook, Instagram, LinkedIn, and Twitter."
-pubDate: "2026-06-30"
+pubDate: "2026-06-15"
 author: "Archit"
 tags: ["marketing", "resizing"]
 keywords: "social media image sizes, instagram dimensions, facebook post size limit, social media image guidelines"

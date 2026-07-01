@@ -1,7 +1,7 @@
 ---
 title: "How to Reduce Image File Size for Email Newsletters"
 description: "Prevent your emails from ending up in the spam folder or taking too long to open. Learn the ideal image dimensions and weights for HTML emails."
-pubDate: "2026-06-06"
+pubDate: "2026-06-10"
 author: "Archit"
 tags: ["compression", "marketing"]
 keywords: "reduce image size for email, email marketing image size, compress newsletter images, email load speed"

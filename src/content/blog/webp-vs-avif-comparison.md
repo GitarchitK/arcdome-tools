@@ -1,7 +1,7 @@
 ---
 title: "WebP vs. AVIF: Which Next-Gen Image Format is Best for Speed?"
 description: "A detailed performance comparison of WebP and AVIF image formats. Learn about compression ratios, speed metrics, browser support, and SEO benefits."
-pubDate: "2026-06-27"
+pubDate: "2026-06-04"
 author: "Archit"
 tags: ["formats", "performance", "seo"]
 keywords: "webp vs avif, next-gen image formats, web performance, image compression, pagespeed"

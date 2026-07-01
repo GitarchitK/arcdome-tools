@@ -1,7 +1,7 @@
 ---
 title: "How to Compress Images to 100KB Online for Free"
 description: "Learn how to easily compress JPG, PNG, and WebP images to 100KB for government forms, job applications, and websites without losing quality."
-pubDate: "2026-06-18"
+pubDate: "2026-06-26"
 author: "Archit"
 tags: ["compression", "guides", "utility"]
 keywords: "compress image to 100kb, compress photo to 100kb, image compressor 100kb, online image compressor"

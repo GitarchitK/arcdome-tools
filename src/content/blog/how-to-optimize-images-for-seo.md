@@ -1,7 +1,7 @@
 ---
 title: "The Ultimate Guide to Image SEO: Rank Higher on Google"
 description: "Boost your organic search rankings. Learn how image file sizes, alt tags, descriptive filenames, and modern layouts impact Google Image SEO."
-pubDate: "2026-06-17"
+pubDate: "2026-06-02"
 author: "Archit"
 tags: ["seo", "marketing", "performance"]
 keywords: "image seo, google image ranking, image alt tags, optimize images for search, image sitemaps"

@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SCSSCalculator from '../components/SCSSCalculator.astro';
+
+// Financial Product Schema for Google Rich Snippets
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Senior Citizen Savings Scheme (SCSS)",
+  "description": "Government-backed savings scheme for individuals aged 60 and above offering quarterly interest payouts, high safety, and tax benefits.",
+  "provider": {
+    "@type": "GovernmentOrganization",
+    "name": "Government of India (Ministry of Finance)"
+  },
+  "feesAndCommissionsSpecification": "No account opening fee. Premature closure penalty applies: 1.5% before 2 years, 1% after 2 years.",
+  "interestRate": {
+    "@type": "QuantitativeValue",
+    "value": 8.20,
+    "unitText": "Annual Percentage Rate (p.a.)"
+  }
+};
+
+// FAQ Schema for SEO Rich Listings
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the current interest rate for SCSS in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The current interest rate for the Senior Citizen Savings Scheme (SCSS) is 8.20% per annum. This rate is backed by the Government of India and is reviewed quarterly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the SCSS interest paid out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SCSS interest is paid out quarterly on the first working day of April, July, October, and January. The interest is credited directly to the depositor's linked savings bank account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the maximum investment limit in SCSS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The maximum deposit limit for the Senior Citizen Savings Scheme (SCSS) is ₹30 Lakhs per individual. Spouses can open separate accounts, allowing a total family investment of up to ₹60 Lakhs if both are eligible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SCSS interest tax-free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. While the principal deposit qualifies for tax deduction up to ₹1.5 Lakhs under Section 80C, the interest earned is fully taxable as per the depositor's income tax slab. If the annual interest exceeds ₹50,000, TDS is deducted."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Senior Citizen Savings Scheme (SCSS) Calculator Online" 
+  description="Estimate your quarterly interest income under the Government SCSS Scheme. Current rate is 8.2% p.a. Calculate payouts, tax benefits, and check TDS limits."
+>
+  <div class="calc-page-container">
+    <!-- SCSS Calculator Component -->
+    <SCSSCalculator />
+
+    <!-- SEO Guide Section -->
+    <section class="calc-guide-section glass-card">
+      <h2>Senior Citizen Savings Scheme (SCSS) Guide</h2>
+      <p>
+        The <strong>Senior Citizen Savings Scheme (SCSS)</strong> is a government-sponsored retirement savings program launched in India. Tailored specifically for seniors, it offers an attractive combination of regular interest payouts, sovereign safety, and tax benefits, making it an ideal choice for retirees looking for steady income.
+      </p>
+
+      <h3>Eligibility Criteria</h3>
+      <p>You can open an SCSS account at any authorized bank or post office branch if you meet one of the following criteria:</p>
+      <ul>
+        <li>Individuals aged <strong>60 years or older</strong>.</li>
+        <li>Retirees aged <strong>55 to 60 years</strong> who have opted for Voluntary Retirement Scheme (VRS) or Superannuation, provided the account is opened within 1 month of receiving retirement benefits.</li>
+        <li>Retired Defense Personnel aged <strong>50 years or older</strong>.</li>
+      </ul>
+
+      <h3>Key Features at a Glance</h3>
+      <ul>
+        <li><strong>Fixed Interest Rate:</strong> The current interest rate is <strong>8.2% per annum</strong>. Once you invest, your rate remains locked and fixed for the entire 5-year tenure.</li>
+        <li><strong>Quarterly Interest Credits:</strong> Interest is paid out quarterly on the first working day of <strong>April, July, October, and January</strong>. It is credited directly to your bank account.</li>
+        <li><strong>Deposit Limits:</strong> The minimum deposit is ₹1,000, and the maximum deposit limit is <strong>₹30 Lakhs per individual</strong>. Spouses can open individual accounts up to ₹30 Lakhs each.</li>
+        <li><strong>Tenure:</strong> The scheme has a maturity period of <strong>5 years</strong>. Upon maturity, the account can be extended for an additional block of <strong>3 years</strong>.</li>
+      </ul>
+
+      <h3>How the SCSS Interest is Calculated</h3>
+      <p>
+        Unlike Fixed Deposits, SCSS interest is **not compounded**. Instead, simple interest is computed on your principal and paid out every quarter. The calculation is:
+      </p>
+      <div class="math-formula-box">
+        Quarterly Interest Payout = Principal &times; Interest Rate &times; (1 / 4)
+      </div>
+      <p>For example, if you deposit ₹10 Lakhs at 8.2% p.a.:</p>
+      <ul>
+        <li><strong>Quarterly Interest:</strong> ₹10,00,000 &times; 0.082 &times; 0.25 = <strong>₹20,500</strong> credited every quarter.</li>
+        <li><strong>Annual Income:</strong> ₹20,500 &times; 4 = <strong>₹82,000</strong> per year.</li>
+        <li><strong>Total Interest over 5 Years:</strong> ₹82,000 &times; 5 = <strong>₹4,10,000</strong>.</li>
+      </ul>
+
+      <h3>Tax Deductions (Section 80C) and TDS</h3>
+      <p>
+        Investments made in SCSS are eligible for a tax deduction of up to <strong>₹1.5 Lakhs per year</strong> under Section 80C of the Income Tax Act. However, the quarterly interest received is fully taxable as per your individual tax slab. 
+      </p>
+      <p>
+        <strong>Tax Deducted at Source (TDS)</strong> will be deducted at 10% by the bank or post office if your total interest income across SCSS accounts exceeds <strong>₹50,000 in a financial year</strong>. To prevent TDS deduction (if your total taxable income is below the exemption limit), eligible depositors must submit <strong>Form 15H</strong> at the start of each financial year.
+      </p>
+    </section>
+  </div>
+
+  <!-- Inject Schema Markups -->
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .calc-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .calc-guide-section {
+    padding: 40px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .calc-guide-section {
+      padding: 24px;
+    }
+  }
+
+  .calc-guide-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  .calc-guide-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 24px 0 12px;
+  }
+
+  .calc-guide-section p {
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section li {
+    margin-bottom: 8px;
+  }
+
+  .math-formula-box {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 20px 0;
+    color: var(--text-main);
+  }
+</style>

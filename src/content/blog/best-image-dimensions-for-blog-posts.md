@@ -1,7 +1,7 @@
 ---
 title: "What are the Best Image Dimensions for Blog Posts & Headers?"
 description: "Discover the ideal image widths for blog grids, featured headers, and post paragraphs to ensure perfect desktop and mobile layouts."
-pubDate: "2026-06-08"
+pubDate: "2026-06-16"
 author: "Archit"
 tags: ["web-design", "resizing"]
 keywords: "blog post image dimensions, featured image size, blog header width, responsive blog layouts"

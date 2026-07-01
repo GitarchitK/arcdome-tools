@@ -1,7 +1,7 @@
 ---
 title: "Image Compression Guide for Professional Photographers"
 description: "Learn how to showcase high-resolution galleries online without slowing down your portfolio. Best export settings for lightrooms and sites."
-pubDate: "2026-06-03"
+pubDate: "2026-06-26"
 author: "Archit"
 tags: ["performance", "guides"]
 keywords: "photography portfolio speed, compress lightroom images, export settings photography, portfolio image resizer"

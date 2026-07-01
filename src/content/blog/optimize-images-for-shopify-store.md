@@ -1,7 +1,7 @@
 ---
 title: "How to Optimize Shopify Product Images for High Conversions"
 description: "Products that load fast sell faster. Learn how to compress product galleries, maintain aspect ratios, and format shop images."
-pubDate: "2026-06-07"
+pubDate: "2026-06-23"
 author: "Archit"
 tags: ["performance", "shopify", "marketing"]
 keywords: "optimize shopify images, ecommerce image compressor, shopify product page speed, compress shop images"

@@ -1,7 +1,7 @@
 ---
 title: "WebP vs. JPEG: Why You Should Convert to WebP Today"
 description: "Compare the compression efficiency of WebP and JPEG. Understand why converting images to WebP improves Core Web Vitals and website load speeds."
-pubDate: "2026-06-21"
+pubDate: "2026-06-10"
 author: "Archit"
 tags: ["formats", "performance"]
 keywords: "webp vs jpeg, convert jpeg to webp, next-gen image compression, core web vitals, speed optimization"

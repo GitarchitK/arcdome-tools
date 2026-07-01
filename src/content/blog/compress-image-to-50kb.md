@@ -1,7 +1,7 @@
 ---
 title: "How to Compress Image to 50KB Without Losing Quality"
 description: "Need to resize a passport photo or scan under 50KB? Follow this local browser-based compression guide to shrink images to exactly 50KB."
-pubDate: "2026-06-12"
+pubDate: "2026-06-18"
 author: "Archit"
 tags: ["compression", "guides", "utility"]
 keywords: "compress image to 50kb, resize photo to 50kb, image size under 50kb, client-side compressor"

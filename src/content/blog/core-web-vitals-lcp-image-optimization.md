@@ -1,7 +1,7 @@
 ---
 title: "How Image Optimization Fixes LCP (Largest Contentful Paint)"
 description: "Learn how to optimize Largest Contentful Paint (LCP) by compressing hero images, converting to WebP, and sizing layout assets correctly."
-pubDate: "2026-06-15"
+pubDate: "2026-06-01"
 author: "Archit"
 tags: ["performance", "seo"]
 keywords: "largest contentful paint, lcp image optimization, core web vitals speed, lazy loading, modern layouts"

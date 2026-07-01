@@ -1,7 +1,7 @@
 ---
 title: "How to Resize Image Pixels Online Without Losing Quality"
 description: "Change the pixel width and height of an image while preserving crisp details. Learn how browser-based interpolation rescales photos."
-pubDate: "2026-06-24"
+pubDate: "2026-06-08"
 author: "Archit"
 tags: ["resizing", "guides"]
 keywords: "resize image pixels, change image dimensions, scale width and height, resizer tool"
