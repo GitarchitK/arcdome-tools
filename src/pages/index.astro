@@ -77,8 +77,8 @@ const appSchema = {
 
   <!-- Tools Grid Section -->
   <section id="tools-grid" class="tools-grid-section">
-    <h2 class="section-title">High-Performance Image Tools</h2>
-    <p class="section-subtitle">Select a tool to start optimizing. All operations are free, unlimited, and run 100% client-side.</p>
+    <h2 class="section-title">High-Performance Web Utilities</h2>
+    <p class="section-subtitle">Select a tool to start. All operations are completely free, secure, run client-side, and require no signup.</p>
     
     <div class="grid-container">
       
@@ -120,6 +120,47 @@ const appSchema = {
         <h3>Image Resizer</h3>
         <p>Resize pixel dimensions or downscale images by percentage. Maintain perfect aspect ratios for website templates and assets.</p>
         <a href="/resize-image" class="btn btn-secondary w-full tool-link">Open Resizer</a>
+      </div>
+
+      <!-- Tool 4: FD Calculator -->
+      <div class="glass-card tool-card">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+            <line x1="9" y1="9" x2="15" y2="9" />
+            <line x1="9" y1="13" x2="15" y2="13" />
+            <line x1="9" y1="17" x2="15" y2="17" />
+          </svg>
+        </div>
+        <h3>Fixed Deposit (FD) Calculator</h3>
+        <p>Calculate maturity amounts and interest returns with quarterly compounding presets for top Indian banks.</p>
+        <a href="/fd-calculator" class="btn btn-secondary w-full tool-link">Open FD Calculator</a>
+      </div>
+
+      <!-- Tool 5: RD Calculator -->
+      <div class="glass-card tool-card">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>
+        </div>
+        <h3>Recurring Deposit (RD) Calculator</h3>
+        <p>Estimate maturity returns on systematic monthly savings compounding quarterly at bank interest rates.</p>
+        <a href="/rd-calculator" class="btn btn-secondary w-full tool-link">Open RD Calculator</a>
+      </div>
+
+      <!-- Tool 6: SCSS Calculator -->
+      <div class="glass-card tool-card">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <h3>Senior Citizen Savings (SCSS) Calculator</h3>
+        <p>Plan retirement savings payouts under the government scheme. Estimate quarterly income and check TDS limits.</p>
+        <a href="/scss-calculator" class="btn btn-secondary w-full tool-link">Open SCSS Calculator</a>
       </div>
 
     </div>
@@ -282,7 +323,7 @@ const appSchema = {
 
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-top: 16px;
   }
