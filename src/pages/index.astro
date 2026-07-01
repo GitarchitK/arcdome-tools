@@ -83,8 +83,7 @@ const appSchema = {
     <div class="grid-container">
       
       <!-- Tool 1: Compressor -->
-      <div class="glass-card tool-card compress-theme">
-        <a href="/compress-image" class="card-cover-link" aria-label="Open Image Compressor"></a>
+      <a href="/compress-image" class="glass-card tool-card compress-theme">
         <div class="tool-icon-box">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -96,11 +95,10 @@ const appSchema = {
         <h3>Image Compressor</h3>
         <p>Reduce file size in KB or MB. Perfect for government forms, applications, or web speed optimization with custom target size quotas.</p>
         <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
-      </div>
+      </a>
 
       <!-- Tool 2: Converter -->
-      <div class="glass-card tool-card convert-theme">
-        <a href="/convert-image" class="card-cover-link" aria-label="Open Image Converter"></a>
+      <a href="/convert-image" class="glass-card tool-card convert-theme">
         <div class="tool-icon-box">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
@@ -111,11 +109,10 @@ const appSchema = {
         <h3>Image Converter</h3>
         <p>Convert images between formats in milliseconds. Switch between PNG, JPG, and WEBP to optimize loading speed.</p>
         <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
-      </div>
+      </a>
 
       <!-- Tool 3: Resizer -->
-      <div class="glass-card tool-card resize-theme">
-        <a href="/resize-image" class="card-cover-link" aria-label="Open Image Resizer"></a>
+      <a href="/resize-image" class="glass-card tool-card resize-theme">
         <div class="tool-icon-box">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
@@ -126,11 +123,10 @@ const appSchema = {
         <h3>Image Resizer</h3>
         <p>Resize pixel dimensions or downscale images by percentage. Maintain perfect aspect ratios for website templates and assets.</p>
         <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
-      </div>
+      </a>
 
       <!-- Tool 4: FD Calculator -->
-      <div class="glass-card tool-card fd-theme">
-        <a href="/fd-calculator" class="card-cover-link" aria-label="Open FD Calculator"></a>
+      <a href="/fd-calculator" class="glass-card tool-card fd-theme">
         <div class="tool-icon-box">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
@@ -143,11 +139,10 @@ const appSchema = {
         <h3>Fixed Deposit (FD) Calculator</h3>
         <p>Calculate maturity amounts and interest returns with quarterly compounding presets for top Indian banks.</p>
         <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
-      </div>
+      </a>
 
       <!-- Tool 5: RD Calculator -->
-      <div class="glass-card tool-card rd-theme">
-        <a href="/rd-calculator" class="card-cover-link" aria-label="Open RD Calculator"></a>
+      <a href="/rd-calculator" class="glass-card tool-card rd-theme">
         <div class="tool-icon-box">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="20" x2="18" y2="10" />
@@ -159,11 +154,10 @@ const appSchema = {
         <h3>Recurring Deposit (RD) Calculator</h3>
         <p>Estimate maturity returns on systematic monthly savings compounding quarterly at bank interest rates.</p>
         <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
-      </div>
+      </a>
 
       <!-- Tool 6: SCSS Calculator -->
-      <div class="glass-card tool-card scss-theme">
-        <a href="/scss-calculator" class="card-cover-link" aria-label="Open SCSS Calculator"></a>
+      <a href="/scss-calculator" class="glass-card tool-card scss-theme">
         <div class="tool-icon-box">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -173,7 +167,7 @@ const appSchema = {
         <h3>Senior Citizen Savings (SCSS) Calculator</h3>
         <p>Plan retirement savings payouts under the government scheme. Estimate quarterly income and check TDS limits.</p>
         <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
-      </div>
+      </a>
 
     </div>
   </section>
@@ -348,6 +342,8 @@ const appSchema = {
   }
 
   .tool-card {
+    text-decoration: none;
+    color: inherit;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -360,15 +356,6 @@ const appSchema = {
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
                 box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
                 border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .card-cover-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
   }
 
   .tool-tag {

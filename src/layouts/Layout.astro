@@ -293,4 +293,11 @@ const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* Mobile tools pages overrides */
+  @media (max-width: 600px) {
+    .tool-page-container .aeo-summary-section {
+      display: none !important;
+    }
+  }
 </style>
