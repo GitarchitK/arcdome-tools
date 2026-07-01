@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RDCalculator from '../components/RDCalculator.astro';
+
+// Financial Product Schema for Google Rich Snippets
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Recurring Deposit (RD)",
+  "description": "Systematic monthly savings product offering guaranteed compounding returns for fixed tenures in Indian Banks.",
+  "provider": {
+    "@type": "Bank",
+    "name": "Indian Banks (SBI, HDFC, ICICI, PNB, Axis)"
+  },
+  "feesAndCommissionsSpecification": "No setup fee. Penalty for delayed monthly installments or pre-mature withdrawal applies as per bank rules.",
+  "interestRate": {
+    "@type": "QuantitativeValue",
+    "minValue": 3.0,
+    "maxValue": 8.0,
+    "unitText": "Annual Percentage Rate (p.a.)"
+  }
+};
+
+// FAQ Schema for SEO Rich Listings
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Recurring Deposit (RD)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Recurring Deposit (RD) is a special term deposit offered by banks in India that allows people with regular incomes to deposit a fixed amount every month and earn interest at rates similar to regular Fixed Deposits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is RD compounding calculated in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RD compounding in India is calculated quarterly. Since deposits are made monthly, banks apply a specialized geometric progression formula representing monthly deposits compounding at quarterly intervals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I withdraw my RD before maturity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, premature withdrawal of RD is allowed by most banks, but it usually attracts a penalty of 0.50% to 1.00% reduction in the applicable interest rate for the period the deposit remained with the bank."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Recurring Deposit (RD) Calculator Online - Estimate RD Returns" 
+  description="Free online Recurring Deposit (RD) Calculator. Estimate maturity value and interest earnings on monthly savings. Toggle Senior Citizen interest premiums and apply SBI, HDFC, ICICI, PNB, or Axis Bank rates."
+>
+  <div class="calc-page-container">
+    <!-- Calculator Component -->
+    <RDCalculator />
+
+    <!-- SEO Content Section -->
+    <section class="calc-guide-section glass-card">
+      <h2>Understanding Recurring Deposits (RDs) in India</h2>
+      <p>
+        A <strong>Recurring Deposit (RD)</strong> is a systematic saving tool that helps you build a financial cushion over time. Unlike Fixed Deposits, which require a large lump sum upfront, an RD lets you invest a small, fixed amount every month (e.g. ₹500, ₹2,000, or ₹10,000) for a predetermined tenure, earning interest on every installment.
+      </p>
+
+      <h3>How to Use the Arcdome RD Calculator</h3>
+      <ol>
+        <li><strong>Monthly Deposit:</strong> Choose the monthly amount you want to save.</li>
+        <li><strong>Interest Rate:</strong> Set the interest rate. You can easily click on SBI, HDFC, ICICI, Axis, or PNB bank cards below the calculator to instantly apply their current RD rate.</li>
+        <li><strong>Tenure:</strong> Set the duration in months or years. Typical RD tenures range from 6 months to 10 years.</li>
+        <li><strong>Senior Citizen Toggle:</strong> Toggle this to apply the senior citizen premium (+0.50%) offered by banks.</li>
+      </ol>
+
+      <h3>How RD Interest Compounding Works</h3>
+      <p>
+        In Indian banks, RD interest is compounded **quarterly**. Because deposits are made monthly, the interest is calculated using a sum of compound interest factors for each month. The formula used for calculating the maturity value of an RD is:
+      </p>
+      <div class="math-formula-box">
+        M = P &times; (1 + i)<sup>1/3</sup> &times; [ (1 + i)<sup>N/3</sup> - 1 ] / [ (1 + i)<sup>1/3</sup> - 1 ]
+      </div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>M:</strong> Maturity Value</li>
+        <li><strong>P:</strong> Monthly Installment Amount</li>
+        <li><strong>i:</strong> Quarterly Interest Rate (Annual Rate / 4)</li>
+        <li><strong>N:</strong> Total tenure in months</li>
+      </ul>
+
+      <h3>FD vs. RD: Which One Should You Choose?</h3>
+      <p>
+        The choice between a Fixed Deposit and a Recurring Deposit depends entirely on your cash flow:
+      </p>
+      <ul>
+        <li><strong>Choose Fixed Deposit (FD)</strong> if you have a lump sum amount (like a bonus, inheritance, or savings maturity) and want to lock it away to earn the highest interest immediately.</li>
+        <li><strong>Choose Recurring Deposit (RD)</strong> if you want to save systematically from your monthly salary, building a disciplined saving habit without the pressure of an upfront lump-sum requirement.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Inject JSON-LD Schema Markups -->
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .calc-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .calc-guide-section {
+    padding: 40px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .calc-guide-section {
+      padding: 24px;
+    }
+  }
+
+  .calc-guide-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  .calc-guide-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 24px 0 12px;
+  }
+
+  .calc-guide-section p {
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section ol, .calc-guide-section ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section li {
+    margin-bottom: 8px;
+  }
+
+  .math-formula-box {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 20px 0;
+    color: var(--text-main);
+  }
+</style>

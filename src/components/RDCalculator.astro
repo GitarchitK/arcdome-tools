@@ -1,0 +1,831 @@
+---
+// RD Calculator component
+---
+
+<div class="calculator-card glass-card">
+  <div class="calculator-layout">
+    <!-- Inputs Panel -->
+    <div class="calc-inputs">
+      <h2 class="calc-title">Recurring Deposit (RD) Calculator</h2>
+      <p class="calc-subtitle">Calculate your maturity value and interest earnings for monthly deposit installments.</p>
+
+      <!-- Monthly Deposit -->
+      <div class="input-group">
+        <div class="input-header">
+          <label for="rd-monthly">Monthly Deposit (₹)</label>
+          <input type="number" id="rd-monthly-num" min="500" max="1000000" value="5000" class="num-input" />
+        </div>
+        <input type="range" id="rd-monthly" min="500" max="1000000" step="500" value="5000" class="range-slider" />
+        <div class="slider-labels">
+          <span>₹500</span>
+          <span>₹5L</span>
+          <span>₹10L</span>
+        </div>
+      </div>
+
+      <!-- Interest Rate -->
+      <div class="input-group">
+        <div class="input-header">
+          <label for="rd-rate">Rate of Interest (% p.a.)</label>
+          <input type="number" id="rd-rate-num" min="1" max="15" step="0.05" value="7.10" class="num-input" />
+        </div>
+        <input type="range" id="rd-rate" min="1" max="15" step="0.05" value="7.10" class="range-slider" />
+        <div class="slider-labels">
+          <span>1%</span>
+          <span>8%</span>
+          <span>15%</span>
+        </div>
+      </div>
+
+      <!-- Tenure -->
+      <div class="input-group">
+        <div class="input-header">
+          <label for="rd-tenure">Tenure</label>
+          <div class="tenure-input-wrapper">
+            <input type="number" id="rd-tenure-num" min="6" max="120" value="60" class="num-input tenure-num" />
+            <select id="rd-tenure-unit" class="select-dropdown tenure-unit">
+              <option value="months" selected>Months</option>
+              <option value="years">Years</option>
+            </select>
+          </div>
+        </div>
+        <input type="range" id="rd-tenure" min="6" max="120" step="1" value="60" class="range-slider" />
+        <div class="slider-labels" id="rd-tenure-slider-labels">
+          <span>6 Mon</span>
+          <span>63 Mon</span>
+          <span>120 Mon</span>
+        </div>
+      </div>
+
+      <!-- Senior Citizen Toggle -->
+      <div class="toggle-group glass-card">
+        <div class="toggle-text">
+          <strong>Senior Citizen Rates</strong>
+          <span>Apply additional interest premium (+0.50% p.a.)</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="rd-senior-toggle" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Outputs & Charts Panel -->
+    <div class="calc-outputs">
+      <div class="outputs-container glass-card">
+        <h3>Maturity Details</h3>
+
+        <!-- Big Number Result -->
+        <div class="maturity-amount-display">
+          <span class="amount-label">Maturity Amount</span>
+          <span class="amount-val" id="rd-maturity-val">₹3,59,481</span>
+        </div>
+
+        <hr class="calc-divider" />
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <span class="metric-dot principal-dot"></span>
+            <div>
+              <span class="metric-label">Total Invested</span>
+              <span class="metric-val" id="rd-invested-val">₹3,00,000</span>
+            </div>
+          </div>
+          <div class="metric-item">
+            <span class="metric-dot interest-dot"></span>
+            <div>
+              <span class="metric-label">Est. Interest Earned</span>
+              <span class="metric-val text-primary" id="rd-interest-val">₹59,481</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SVG Donut Chart Visual -->
+        <div class="chart-container">
+          <svg width="180" height="180" viewBox="0 0 180 180" class="donut-chart">
+            <circle cx="90" cy="90" r="70" class="chart-bg" stroke-width="16" />
+            <circle cx="90" cy="90" r="70" class="chart-fill" id="rd-chart-fill" stroke-width="16" stroke-dasharray="439.8" stroke-dashoffset="130" transform="rotate(-90 90 90)" />
+          </svg>
+          <div class="chart-label">
+            <span id="rd-ratio-pct">16.5%</span>
+            <span>Interest</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bank Rates Presets Section -->
+  <div class="bank-rates-section">
+    <h3 class="bank-rates-title">Compare Top Indian Bank RD Rates (2026)</h3>
+    <p class="bank-rates-subtitle">Select any rate preset below to instantly load it into the calculator.</p>
+    <div class="rates-grid">
+      <!-- SBI -->
+      <div class="bank-rate-card glass-card" data-bank="sbi" data-reg="6.80" data-snr="7.30">
+        <div class="bank-header">
+          <span class="bank-logo-placeholder sbi-logo">SBI</span>
+          <strong>SBI Bank</strong>
+        </div>
+        <div class="rate-values">
+          <div class="rate-col">
+            <span>Regular</span>
+            <strong class="reg-rate-display">6.80%</strong>
+          </div>
+          <div class="rate-col">
+            <span>Senior</span>
+            <strong class="snr-rate-display">7.30%</strong>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm use-rate-btn">Apply Rate</button>
+      </div>
+
+      <!-- HDFC -->
+      <div class="bank-rate-card glass-card" data-bank="hdfc" data-reg="7.15" data-snr="7.65">
+        <div class="bank-header">
+          <span class="bank-logo-placeholder hdfc-logo">HDFC</span>
+          <strong>HDFC Bank</strong>
+        </div>
+        <div class="rate-values">
+          <div class="rate-col">
+            <span>Regular</span>
+            <strong class="reg-rate-display">7.15%</strong>
+          </div>
+          <div class="rate-col">
+            <span>Senior</span>
+            <strong class="snr-rate-display">7.65%</strong>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm use-rate-btn">Apply Rate</button>
+      </div>
+
+      <!-- ICICI -->
+      <div class="bank-rate-card glass-card" data-bank="icici" data-reg="7.10" data-snr="7.60">
+        <div class="bank-header">
+          <span class="bank-logo-placeholder icici-logo">ICICI</span>
+          <strong>ICICI Bank</strong>
+        </div>
+        <div class="rate-values">
+          <div class="rate-col">
+            <span>Regular</span>
+            <strong class="reg-rate-display">7.10%</strong>
+          </div>
+          <div class="rate-col">
+            <span>Senior</span>
+            <strong class="snr-rate-display">7.60%</strong>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm use-rate-btn">Apply Rate</button>
+      </div>
+
+      <!-- Axis -->
+      <div class="bank-rate-card glass-card" data-bank="axis" data-reg="7.15" data-snr="7.80">
+        <div class="bank-header">
+          <span class="bank-logo-placeholder axis-logo">AXIS</span>
+          <strong>Axis Bank</strong>
+        </div>
+        <div class="rate-values">
+          <div class="rate-col">
+            <span>Regular</span>
+            <strong class="reg-rate-display">7.15%</strong>
+          </div>
+          <div class="rate-col">
+            <span>Senior</span>
+            <strong class="snr-rate-display">7.80%</strong>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm use-rate-btn">Apply Rate</button>
+      </div>
+
+      <!-- PNB -->
+      <div class="bank-rate-card glass-card" data-bank="pnb" data-reg="7.10" data-snr="7.60">
+        <div class="bank-header">
+          <span class="bank-logo-placeholder pnb-logo">PNB</span>
+          <strong>PNB Bank</strong>
+        </div>
+        <div class="rate-values">
+          <div class="rate-col">
+            <span>Regular</span>
+            <strong class="reg-rate-display">7.10%</strong>
+          </div>
+          <div class="rate-col">
+            <span>Senior</span>
+            <strong class="snr-rate-display">7.60%</strong>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm use-rate-btn">Apply Rate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Elements
+  const monthlySlider = document.getElementById('rd-monthly') as HTMLInputElement;
+  const monthlyNum = document.getElementById('rd-monthly-num') as HTMLInputElement;
+  const rateSlider = document.getElementById('rd-rate') as HTMLInputElement;
+  const rateNum = document.getElementById('rd-rate-num') as HTMLInputElement;
+  const tenureSlider = document.getElementById('rd-tenure') as HTMLInputElement;
+  const tenureNum = document.getElementById('rd-tenure-num') as HTMLInputElement;
+  const tenureUnitSelect = document.getElementById('rd-tenure-unit') as HTMLSelectElement;
+  const seniorToggle = document.getElementById('rd-senior-toggle') as HTMLInputElement;
+
+  const maturityAmountText = document.getElementById('rd-maturity-val');
+  const investedAmountText = document.getElementById('rd-invested-val');
+  const interestAmountText = document.getElementById('rd-interest-val');
+  const ratioText = document.getElementById('rd-ratio-pct');
+  const chartFillCircle = document.getElementById('rd-chart-fill');
+
+  const tenureSliderLabels = document.getElementById('rd-tenure-slider-labels');
+
+  // Synchronizers
+  function syncInputs(slider: HTMLInputElement, numInput: HTMLInputElement, callback: () => void) {
+    slider.addEventListener('input', () => {
+      numInput.value = slider.value;
+      callback();
+    });
+    numInput.addEventListener('change', () => {
+      let val = parseFloat(numInput.value);
+      const min = parseFloat(numInput.min);
+      const max = parseFloat(numInput.max);
+      if (isNaN(val)) val = min;
+      if (val < min) val = min;
+      if (val > max) val = max;
+      numInput.value = String(val);
+      slider.value = String(val);
+      callback();
+    });
+  }
+
+  // Handle unit change for Tenure Slider limits
+  tenureUnitSelect.addEventListener('change', () => {
+    const unit = tenureUnitSelect.value;
+    if (unit === 'years') {
+      tenureSlider.min = '1';
+      tenureSlider.max = '10';
+      tenureSlider.step = '1';
+      tenureNum.min = '1';
+      tenureNum.max = '10';
+      tenureNum.value = '5';
+      tenureSlider.value = '5';
+      if (tenureSliderLabels) {
+        tenureSliderLabels.innerHTML = '<span>1 Yr</span><span>5 Yrs</span><span>10 Yrs</span>';
+      }
+    } else { // months
+      tenureSlider.min = '6';
+      tenureSlider.max = '120';
+      tenureSlider.step = '1';
+      tenureNum.min = '6';
+      tenureNum.max = '120';
+      tenureNum.value = '60';
+      tenureSlider.value = '60';
+      if (tenureSliderLabels) {
+        tenureSliderLabels.innerHTML = '<span>6 Mon</span><span>63 Mon</span><span>120 Mon</span>';
+      }
+    }
+    calculateRD();
+  });
+
+  // Calculate RD (Compounded Quarterly as per Indian Banks standard)
+  function calculateRD() {
+    const P = parseFloat(monthlySlider.value); // Monthly deposit
+    const r = parseFloat(rateSlider.value) / 100; // Annual interest rate
+    const tVal = parseFloat(tenureSlider.value);
+    const unit = tenureUnitSelect.value;
+
+    const formatCurrency = (val: number) => {
+      return '₹' + Math.round(val).toLocaleString('en-IN');
+    };
+
+    // Calculate total months (N)
+    const N = unit === 'years' ? tVal * 12 : tVal;
+
+    // RD Maturity Formula: M = P * (1 + r/4)^(1/3) * [ (1 + r/4)^(N/3) - 1 ] / [ (1 + r/4)^(1/3) - 1 ]
+    const i = r / 4; // Quarterly rate
+    const power = N / 3; // Total quarters
+    const base = 1 + i;
+    const monthlyFactor = Math.pow(base, 1 / 3);
+
+    const M = P * monthlyFactor * (Math.pow(base, power) - 1) / (monthlyFactor - 1);
+    const invested = P * N;
+    const interest = M - invested;
+
+    // Update Output Numbers
+    if (maturityAmountText) maturityAmountText.innerText = formatCurrency(M);
+    if (investedAmountText) investedAmountText.innerText = formatCurrency(invested);
+    if (interestAmountText) interestAmountText.innerText = formatCurrency(interest);
+
+    // Update Donut Chart
+    const total = M;
+    const interestPct = total > 0 ? (interest / total) * 100 : 0;
+    if (ratioText) ratioText.innerText = interestPct.toFixed(1) + '%';
+
+    if (chartFillCircle) {
+      const maxOffset = 439.8;
+      const offset = maxOffset - (interestPct / 100) * maxOffset;
+      chartFillCircle.setAttribute('stroke-dashoffset', String(offset));
+    }
+  }
+
+  // Handle Senior Citizen toggle addition
+  seniorToggle.addEventListener('change', () => {
+    let currentRate = parseFloat(rateSlider.value);
+    if (seniorToggle.checked) {
+      currentRate = Math.min(15, currentRate + 0.50);
+    } else {
+      currentRate = Math.max(1, currentRate - 0.50);
+    }
+    rateSlider.value = String(currentRate);
+    rateNum.value = String(currentRate);
+    calculateRD();
+  });
+
+  // Bank Presets click handlers
+  const rateCards = document.querySelectorAll('.bank-rate-card');
+  rateCards.forEach(card => {
+    const applyBtn = card.querySelector('.use-rate-btn');
+    applyBtn?.addEventListener('click', () => {
+      const isSenior = seniorToggle.checked;
+      const rateValStr = isSenior ? card.getAttribute('data-snr') : card.getAttribute('data-reg');
+      if (rateValStr) {
+        const rateVal = parseFloat(rateValStr);
+        rateSlider.value = String(rateVal);
+        rateNum.value = String(rateVal);
+        calculateRD();
+
+        // Visual flash indication
+        card.classList.add('applied-flash');
+        setTimeout(() => card.classList.remove('applied-flash'), 500);
+      }
+    });
+  });
+
+  // Init
+  syncInputs(monthlySlider, monthlyNum, calculateRD);
+  syncInputs(rateSlider, rateNum, calculateRD);
+  syncInputs(tenureSlider, tenureNum, calculateRD);
+  calculateRD();
+</script>
+
+<style>
+  /* Reuse the exact styles as FD calculator for visual unity */
+  .calculator-card {
+    padding: 32px;
+    background: var(--bg-surface);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .calculator-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (max-width: 820px) {
+    .calculator-layout {
+      grid-template-columns: 1fr;
+    }
+    .calculator-card {
+      padding: 20px;
+    }
+  }
+
+  .calc-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .calc-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .calc-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .input-header label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+  }
+
+  .num-input {
+    width: 100px;
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: right;
+    font-family: var(--font-body);
+  }
+
+  .num-input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .range-slider {
+    width: 100%;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+    transition: transform 0.1s ease;
+  }
+
+  .range-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: -2px;
+  }
+
+  .tenure-input-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tenure-num {
+    width: 70px;
+  }
+
+  .tenure-unit {
+    width: 90px;
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  /* Toggle Button Styles */
+  .toggle-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-color: rgba(37, 99, 235, 0.15);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(0, 242, 254, 0.02) 100%);
+  }
+
+  .toggle-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .toggle-text strong {
+    font-size: 0.95rem;
+    color: var(--text-main);
+  }
+
+  .toggle-text span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-hover);
+    transition: .3s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+  }
+
+  input:checked + .slider {
+    background-color: var(--primary);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  .slider.round {
+    border-radius: 24px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  /* Outputs Display */
+  .calc-outputs {
+    position: sticky;
+    top: 96px;
+  }
+
+  .outputs-container {
+    padding: 24px;
+    text-align: center;
+    background: var(--bg-surface-solid);
+    border-color: var(--border-color);
+  }
+
+  .outputs-container h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .maturity-amount-display {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .amount-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .amount-val {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+  }
+
+  .calc-divider {
+    border: none;
+    height: 1px;
+    background: var(--border-color);
+    margin: 20px 0;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .metric-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .metric-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .principal-dot {
+    background: var(--border-hover);
+  }
+
+  .interest-dot {
+    background: var(--primary);
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  .metric-val {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  .chart-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .chart-bg {
+    fill: none;
+    stroke: var(--border-color);
+  }
+
+  .chart-fill {
+    fill: none;
+    stroke: var(--primary);
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s ease;
+  }
+
+  .chart-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+  }
+
+  .chart-label span:first-child {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .chart-label span:last-child {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .bank-rates-section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+  }
+
+  .bank-rates-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-main);
+  }
+
+  .bank-rates-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .rates-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 1024px) {
+    .rates-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .rates-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .rates-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .bank-rate-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    text-align: center;
+    border-color: var(--border-color);
+  }
+
+  .bank-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bank-logo-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .sbi-logo { background: #2563eb; }
+  .hdfc-logo { background: #1e3a8a; }
+  .icici-logo { background: #ea580c; }
+  .axis-logo { background: #86198f; }
+  .pnb-logo { background: #b91c1c; }
+
+  .bank-header strong {
+    font-size: 0.85rem;
+    color: var(--text-main);
+  }
+
+  .rate-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 0;
+  }
+
+  .rate-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .rate-col span {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  .rate-col strong {
+    font-size: 0.9rem;
+    color: var(--text-main);
+  }
+
+  .use-rate-btn {
+    width: 100%;
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+
+  .applied-flash {
+    animation: flashGreen 0.5s ease-in-out;
+  }
+
+  @keyframes flashGreen {
+    0% { border-color: var(--border-color); box-shadow: none; }
+    50% { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.2); }
+    100% { border-color: var(--border-color); box-shadow: none; }
+  }
+</style>

@@ -49,7 +49,18 @@
     <div class="queue-panel">
       <div class="queue-header">
         <h3>Queue (<span id="conv-queue-count">0</span> files)</h3>
-        <button class="text-btn" id="conv-clear-all-btn">Clear All</button>
+        <div class="queue-actions">
+          <button class="text-btn" id="conv-download-all-btn" style="display: none; margin-right: 12px; font-weight: 600; color: var(--primary);">Download All</button>
+          <button class="text-btn" id="conv-clear-all-btn">Clear All</button>
+        </div>
+      </div>
+
+      <!-- Batch Summary Box -->
+      <div class="batch-summary glass-card" id="conv-batch-summary" style="display: none; padding: 12px 16px; margin-bottom: 16px; font-size: 0.85rem; border-color: rgba(34, 197, 94, 0.2); background: rgba(34, 197, 94, 0.05); border-radius: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="color: var(--text-muted);">Batch Status: <strong style="color: #22c55e;">Done</strong></span>
+          <span id="conv-batch-savings-text" style="font-weight: 700; color: var(--text-main);">Converted 0 files</span>
+        </div>
       </div>
 
       <div class="queue-list" id="conv-queue-list">
@@ -81,6 +92,9 @@
   const queueList = document.getElementById('conv-queue-list') as HTMLDivElement;
   const queueCount = document.getElementById('conv-queue-count') as HTMLSpanElement;
   const clearAllBtn = document.getElementById('conv-clear-all-btn') as HTMLButtonElement;
+  const downloadAllBtn = document.getElementById('conv-download-all-btn') as HTMLButtonElement;
+  const batchSummary = document.getElementById('conv-batch-summary') as HTMLDivElement;
+  const batchSavingsText = document.getElementById('conv-batch-savings-text') as HTMLSpanElement;
   const processBtn = document.getElementById('conv-process-btn') as HTMLButtonElement;
   const targetFormatSelect = document.getElementById('conv-target-format') as HTMLSelectElement;
   const avifNote = document.getElementById('avif-support-note') as HTMLSmallElement;
@@ -152,6 +166,8 @@
   }
 
   function processIncomingFiles(fileList: FileList) {
+    if (downloadAllBtn) downloadAllBtn.style.display = 'none';
+    if (batchSummary) batchSummary.style.display = 'none';
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];
       if (file.size > 15 * 1024 * 1024) {
@@ -323,6 +339,8 @@
       dropZone.querySelector('.upload-content p')!.style.display = 'block';
       dropZone.querySelector('.upload-icon-container')!.style.display = 'flex';
       fileInput.value = '';
+      if (downloadAllBtn) downloadAllBtn.style.display = 'none';
+      if (batchSummary) batchSummary.style.display = 'none';
     }
   }
 
@@ -331,6 +349,20 @@
       convertQueue = [];
       renderQueue();
       updateWorkspaceVisibility();
+    });
+  }
+
+  if (downloadAllBtn) {
+    downloadAllBtn.addEventListener('click', () => {
+      let delay = 0;
+      convertQueue.forEach(item => {
+        if (item.status === 'done' && item.convertedBlob && item.outputName) {
+          setTimeout(() => {
+            downloadBlob(item.convertedBlob, item.outputName);
+          }, delay);
+          delay += 250;
+        }
+      });
     });
   }
 
@@ -373,6 +405,30 @@
 
     processBtn.disabled = false;
     processBtn.textContent = 'Convert Images';
+
+    // Calculate total batch conversion stats
+    let successCount = 0;
+    let totalOrig = 0;
+    let totalConv = 0;
+    convertQueue.forEach(item => {
+      if (item.status === 'done' && item.convertedSize) {
+        totalOrig += item.originalSize;
+        totalConv += item.convertedSize;
+        successCount++;
+      }
+    });
+
+    if (successCount > 0 && downloadAllBtn && batchSummary && batchSavingsText) {
+      downloadAllBtn.style.display = 'inline-block';
+      batchSummary.style.display = 'block';
+      const savedBytes = totalOrig - totalConv;
+      if (savedBytes > 0) {
+        const savedPct = Math.round((savedBytes / totalOrig) * 100);
+        batchSavingsText.innerHTML = `Converted ${successCount} files. Saved ${formatBytes(savedBytes)} (${savedPct}%)`;
+      } else {
+        batchSavingsText.innerHTML = `Converted ${successCount} files successfully!`;
+      }
+    }
   }
 
   function loadImageElement(file: File): Promise<HTMLImageElement> {

@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FDCalculator from '../components/FDCalculator.astro';
+
+// Financial Product Schema for Google Rich Snippets
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Fixed Deposit (FD)",
+  "description": "Secure fixed-term investment scheme offering guaranteed returns with compounding interest in Indian Banks.",
+  "provider": {
+    "@type": "Bank",
+    "name": "Indian Banks (SBI, HDFC, ICICI, PNB, Axis)"
+  },
+  "feesAndCommissionsSpecification": "No processing fees. Pre-mature withdrawal penalty may apply as per bank guidelines.",
+  "interestRate": {
+    "@type": "QuantitativeValue",
+    "minValue": 3.0,
+    "maxValue": 8.0,
+    "unitText": "Annual Percentage Rate (p.a.)"
+  }
+};
+
+// FAQ Schema for SEO Rich Listings
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Fixed Deposit (FD)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Fixed Deposit (FD) is a financial instrument offered by banks and non-banking financial companies (NBFCs) where investors deposit a lump sum amount for a fixed tenure at a predetermined interest rate. It offers guaranteed returns and is considered a low-risk investment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is FD interest calculated in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In India, FD interest for tenures of 6 months and above is generally compounded quarterly. The formula used is: A = P(1 + r/n)^(n*t). For tenures shorter than 6 months, simple interest is applied: A = P(1 + r*t)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do senior citizens get higher FD interest rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most Indian banks offer an additional interest rate premium of 0.50% to 0.75% per annum to senior citizens (individuals aged 60 years and above) compared to general regular depositors."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Fixed Deposit (FD) Calculator Online - Compare Indian Bank Rates" 
+  description="Free online Fixed Deposit (FD) Calculator. Calculate maturity value and interest returns with quarterly compounding. Toggle Senior Citizen rates and compare SBI, HDFC, ICICI, PNB, and Axis Bank FD rates."
+>
+  <div class="calc-page-container">
+    <!-- Calculator Component -->
+    <FDCalculator />
+
+    <!-- SEO Content Section -->
+    <section class="calc-guide-section glass-card">
+      <h2>Understanding Fixed Deposits (FDs) in India</h2>
+      <p>
+        A <strong>Fixed Deposit (FD)</strong> is one of the most popular and secure saving instruments in India. By locking in a lump sum amount for a specific tenure, you earn a guaranteed rate of interest that is immune to market fluctuations.
+      </p>
+
+      <h3>How to Use the Arcdome FD Calculator</h3>
+      <ol>
+        <li><strong>Investment Amount:</strong> Enter the principal amount you wish to invest (ranging from ₹1,000 up to ₹1 Crore).</li>
+        <li><strong>Interest Rate:</strong> Input the annual interest rate. You can click on any of the top Indian bank cards (like SBI or HDFC) below the calculator to instantly apply their current market rates.</li>
+        <li><strong>Tenure:</strong> Choose the duration of your deposit in Years, Months, or Days.</li>
+        <li><strong>Senior Citizen Toggle:</strong> If you are 60 years or older, toggle this switch to automatically apply the +0.50% interest premium.</li>
+        <li><strong>Compounding Interval:</strong> Select how often interest is calculated. Quarterly compounding is the default standard for Indian bank FDs.</li>
+      </ol>
+
+      <h3>The Mathematics Behind FD Calculations</h3>
+      <p>
+        For FDs with a tenure of 6 months and above, banks compound interest quarterly. The compound interest formula is:
+      </p>
+      <div class="math-formula-box">
+        A = P &times; (1 + r/n)<sup>(n &times; t)</sup>
+      </div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>A:</strong> Maturity Amount</li>
+        <li><strong>P:</strong> Principal Invested Amount</li>
+        <li><strong>r:</strong> Annual Interest Rate (in decimal form)</li>
+        <li><strong>n:</strong> Number of compounding periods per year (n = 4 for quarterly compounding)</li>
+        <li><strong>t:</strong> Total tenure in years</li>
+      </ul>
+
+      <h3>Tax Implications on FD Returns (TDS)</h3>
+      <p>
+        The interest earned on Fixed Deposits is taxable under "Income from Other Sources". If the total interest earned across all your FDs in a bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens), the bank deducts Tax Deducted at Source (TDS) at 10% (if PAN is provided) or 20% (without PAN). Depositors can submit Form 15G or Form 15H to avoid TDS if their total taxable income is below the taxable threshold.
+      </p>
+    </section>
+  </div>
+
+  <!-- Inject JSON-LD Schema Markups -->
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .calc-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .calc-guide-section {
+    padding: 40px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .calc-guide-section {
+      padding: 24px;
+    }
+  }
+
+  .calc-guide-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  .calc-guide-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 24px 0 12px;
+  }
+
+  .calc-guide-section p {
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section ol, .calc-guide-section ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section li {
+    margin-bottom: 8px;
+  }
+
+  .math-formula-box {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 20px 0;
+    color: var(--text-main);
+  }
+</style>
