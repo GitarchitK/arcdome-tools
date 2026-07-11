@@ -1,7 +1,7 @@
 ---
 title: "Client-Side vs. Server-Side Image Compression: Privacy Matters"
 description: "Compare the privacy and speed benefits of browser-native client-side compression versus remote cloud-based image processors."
-pubDate: "2026-06-08"
+pubDate: "2026-06-29"
 author: "Archit"
 tags: ["privacy", "performance"]
 keywords: "client-side image compression, secure image processor, browser canvas vs server, image data privacy"

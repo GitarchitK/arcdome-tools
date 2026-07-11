@@ -1,7 +1,7 @@
 ---
 title: "How to Compress Image to 20KB for Uploads & Forms"
 description: "Shrink your signature scan or profile picture under 20KB. A quick guide using canvas-based binary scaling to fit image sizes under 20KB."
-pubDate: "2026-06-11"
+pubDate: "2026-07-07"
 author: "Archit"
 tags: ["compression", "guides", "utility"]
 keywords: "compress image to 20kb, resize signature to 20kb, signature compressor online, shrink photo to 20kb"

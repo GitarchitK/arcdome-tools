@@ -1,7 +1,7 @@
 ---
 title: "Crop vs. Resize: How to Correctly Modify Image Framing"
 description: "Should you crop your photo or resize it? Learn when to adjust pixel dimensions and when to trim canvas borders to fit layout templates."
-pubDate: "2026-06-16"
+pubDate: "2026-06-13"
 author: "Archit"
 tags: ["resizing", "guides"]
 keywords: "crop vs resize, image cropping guidelines, change aspect ratio, resize photo borders"

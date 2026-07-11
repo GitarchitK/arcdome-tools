@@ -1,7 +1,7 @@
 ---
 title: "Why Image Compression is Critical for Mobile User Experience"
 description: "Mobile users have slow connections and strict data plans. Learn why optimized, lightweight images improve user engagement and decrease bounce rate."
-pubDate: "2026-06-05"
+pubDate: "2026-06-28"
 author: "Archit"
 tags: ["performance", "web-design"]
 keywords: "mobile user experience, mobile page load speed, compress images for mobile, responsive web design ux"

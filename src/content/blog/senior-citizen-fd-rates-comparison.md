@@ -1,7 +1,7 @@
 ---
 title: "Senior Citizen FD Rates: Compare Top Indian Banks"
 description: "Compare senior citizen Fixed Deposit interest rates across SBI, HDFC, ICICI, PNB, and Axis Bank. Learn about tax benefits and senior citizen premiums."
-pubDate: "2026-06-25"
+pubDate: "2026-06-20"
 author: "Archit"
 tags: ["finance", "comparison", "performance"]
 keywords: "senior citizen fd rates, senior citizen interest rate, compare fd rates, sbi senior citizen fd"

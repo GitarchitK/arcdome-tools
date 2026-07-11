@@ -1,7 +1,7 @@
 ---
 title: "Fixed Deposit (FD) Calculations: A Comprehensive Guide"
 description: "Master Fixed Deposit calculations. Learn how quarterly compounding works, what interest frequencies banks offer, and how to maximize FD returns."
-pubDate: "2026-06-10"
+pubDate: "2026-06-16"
 author: "Archit"
 tags: ["guides", "finance", "utility"]
 keywords: "fd calculator, fixed deposit calculation, compound interest fd, standard bank fd rates"

@@ -1,7 +1,7 @@
 ---
 title: "How to Batch Convert PNG to WebP in Your Browser"
 description: "Convert multiple transparent PNG files to lightweight WebP formats instantly. A complete batch conversion guide for faster websites."
-pubDate: "2026-06-05"
+pubDate: "2026-06-24"
 author: "Archit"
 tags: ["formats", "utility"]
 keywords: "batch convert png to webp, convert transparent png to webp, bulk image converter online, png to webp"

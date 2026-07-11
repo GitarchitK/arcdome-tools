@@ -1,7 +1,7 @@
 ---
 title: "Recurring Deposit (RD) Calculator: Build Monthly Savings"
 description: "Learn how to build wealth systematically with Recurring Deposits (RD). Discover calculation methods, tenure options, and interest structures."
-pubDate: "2026-06-12"
+pubDate: "2026-06-29"
 author: "Archit"
 tags: ["guides", "finance", "utility"]
 keywords: "rd calculator, recurring deposit, monthly savings plan, rd calculation banks"

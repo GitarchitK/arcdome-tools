@@ -1,7 +1,7 @@
 ---
 title: "Next-Gen Image Formats: Browser Compatibility Explained"
 description: "Are WebP and AVIF supported by all major browsers? Learn how Chrome, Safari, Edge, and mobile browsers handle modern image formats."
-pubDate: "2026-06-27"
+pubDate: "2026-06-14"
 author: "Archit"
 tags: ["formats", "performance"]
 keywords: "browser support webp, avif safari compatibility, next-gen format support, responsive images html"

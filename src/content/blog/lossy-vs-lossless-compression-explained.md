@@ -1,7 +1,7 @@
 ---
 title: "Lossy vs. Lossless Image Compression: Which is Better?"
 description: "Learn the differences between lossy and lossless algorithms. Understand when to save details with PNG and when to save space with JPG."
-pubDate: "2026-06-07"
+pubDate: "2026-06-28"
 author: "Archit"
 tags: ["compression", "formats"]
 keywords: "lossy vs lossless, image compression algorithms, lossy jpeg, lossless png compression"

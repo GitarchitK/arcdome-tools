@@ -1,7 +1,7 @@
 ---
 title: "How to Batch Resize Images Online in Seconds"
 description: "Need to resize a folder of photos? Learn how to bulk process dimensions and aspect ratios entirely inside your browser."
-pubDate: "2026-06-08"
+pubDate: "2026-06-22"
 author: "Archit"
 tags: ["resizing", "utility"]
 keywords: "batch resize images, bulk image resizer online, resize folder of photos, browser batch resizing"

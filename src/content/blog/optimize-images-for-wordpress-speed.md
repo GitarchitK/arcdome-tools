@@ -1,7 +1,7 @@
 ---
 title: "How to Optimize Images for WordPress to Boost Speed"
 description: "Stop letting heavy images slow down your WordPress blog. Learn the best sizes, formats, and compression thresholds for high speed."
-pubDate: "2026-06-26"
+pubDate: "2026-07-06"
 author: "Archit"
 tags: ["performance", "wordpress", "seo"]
 keywords: "optimize images wordpress, wordpress speed optimization, compress blog images, lazy load images"

@@ -1,7 +1,7 @@
 ---
 title: "Senior Citizen Savings Scheme (SCSS) Calculator: Payouts & Limits"
 description: "Learn how the Senior Citizen Savings Scheme (SCSS) works. Estimate quarterly payouts at 8.2% p.a., check limits, and manage TDS tax deductions."
-pubDate: "2026-06-24"
+pubDate: "2026-06-18"
 author: "Archit"
 tags: ["guides", "finance", "retirement"]
 keywords: "scss calculator, senior citizen savings scheme, post office scss calculator, scss interest rate"

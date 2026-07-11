@@ -1,7 +1,7 @@
 ---
 title: "How to Compress JPEG Images Online Without Visible Quality Loss"
 description: "Find the sweet spot of lossy compression. Learn how setting JPEG quality to 75-80% reduces size by up to 70% with no visible changes."
-pubDate: "2026-06-17"
+pubDate: "2026-06-23"
 author: "Archit"
 tags: ["compression", "performance"]
 keywords: "compress jpeg quality, decrease jpg size, optimize photography files, best jpeg quality setting"

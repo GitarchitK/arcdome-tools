@@ -1,7 +1,7 @@
 ---
 title: "How to Scale Images by Percentage: A Simple Ratio Guide"
 description: "Resize dimensions quickly by scaling images to 50%, 75%, or 25% of their original size. Learn why percentage scaling maintains perfect layouts."
-pubDate: "2026-06-13"
+pubDate: "2026-07-09"
 author: "Archit"
 tags: ["resizing", "guides"]
 keywords: "scale image by percentage, reduce image size 50 percent, dimension scale ratio, online image resizer"

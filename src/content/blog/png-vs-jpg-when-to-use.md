@@ -1,7 +1,7 @@
 ---
 title: "PNG vs. JPG: Which Image Format is Right for Your Website?"
 description: "Understand the fundamental differences between lossy JPG and lossless PNG. Learn when to use transparent PNGs and when to choose compact JPEGs."
-pubDate: "2026-06-16"
+pubDate: "2026-07-07"
 author: "Archit"
 tags: ["formats", "web-design"]
 keywords: "png vs jpg, png vs jpeg, transparent images, image quality comparison, when to use png"
