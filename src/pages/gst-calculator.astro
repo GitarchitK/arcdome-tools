@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GSTCalculator from '../components/GSTCalculator.astro';
+
+// WebApplication Schema for Search Results
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arcdome GST Calculator",
+  "url": "https://arcdome.online/gst-calculator",
+  "applicationCategory": "FinancialApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript support.",
+  "description": "Calculate Goods & Services Tax (GST) online. Add or remove GST from invoices. Supports standard slabs (5%, 12%, 18%, 28%) and splits CGST/SGST.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+};
+
+// FAQ Schema for Rich Listings
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is GST?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GST stands for Goods and Services Tax. It is an indirect tax levied on the supply of goods and services. It replaced multiple indirect taxes in India, simplifying the tax system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is CGST and SGST divided?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For intrastate transactions (supply within the same state), the GST tax amount is divided equally into CGST (Central GST) which goes to the Central Government, and SGST (State GST) which goes to the State Government."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate GST-exclusive and GST-inclusive amounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To add GST (exclusive): GST Amount = Price * (GST% / 100). Gross Price = Price + GST Amount. To remove GST (inclusive): Original Price = Price * (100 / (100 + GST%)). GST Amount = Price - Original Price."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="GST Calculator Online: Calculate Add / Remove GST Free" 
+  description="Add or remove Goods & Services Tax (GST) from a base price. Instant CGST/SGST breakdown with standard tax rates (5%, 12%, 18%, 28%) online."
+>
+  <div class="calc-page-container">
+    <!-- GST Calculator Component -->
+    <GSTCalculator />
+
+    <!-- SEO Guide Section -->
+    <section class="calc-guide-section glass-card">
+      <h2>Goods & Services Tax (GST) Guide</h2>
+      <p>
+        The <strong>Goods and Services Tax (GST)</strong> is a destination-based, multi-stage indirect tax structure levied on the supply of goods and services. Since its introduction, it has consolidated multiple state and central taxes into a unified single-tax regime, improving market efficiency.
+      </p>
+
+      <h3>Intrastate vs. Interstate Tax Division</h3>
+      <p>
+        GST is classified based on where the seller and buyer are located:
+      </p>
+      <ul>
+        <li><strong>Intrastate Sales (Within State):</strong> The GST tax is divided equally into <strong>CGST</strong> (Central GST) and <strong>SGST</strong> (State GST). For example, an 18% GST rate translates to 9% CGST and 9% SGST.</li>
+        <li><strong>Interstate Sales (Across States):</strong> A single consolidated tax called <strong>IGST</strong> (Integrated GST) is charged, which goes entirely to the Central Government to be redistributed.</li>
+      </ul>
+
+      <h3>How to Add GST (Tax Exclusive)</h3>
+      <p>
+        If your product price does not include tax, you calculate the tax to be added:
+      </p>
+      <div class="math-formula-box">
+        GST Tax Amount = Base Price &times; (GST Rate / 100)<br />
+        Gross Price = Base Price + GST Tax Amount
+      </div>
+
+      <h3>How to Remove GST (Tax Inclusive)</h3>
+      <p>
+        If the retail price already includes GST and you want to extract the base net price:
+      </p>
+      <div class="math-formula-box">
+        Net Base Price = Gross Price &times; [100 / (100 + GST Rate)]<br />
+        GST Tax Amount = Gross Price - Net Base Price
+      </div>
+    </section>
+  </div>
+
+  <!-- Inject Schema Markups -->
+  <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .calc-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .calc-guide-section {
+    padding: 40px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .calc-guide-section {
+      padding: 24px;
+    }
+  }
+
+  .calc-guide-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  .calc-guide-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 24px 0 12px;
+  }
+
+  .calc-guide-section p {
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section li {
+    margin-bottom: 8px;
+  }
+
+  .math-formula-box {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 20px 0;
+    color: var(--text-main);
+    line-height: 1.6;
+  }
+</style>

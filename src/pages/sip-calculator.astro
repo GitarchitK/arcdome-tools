@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SIPCalculator from '../components/SIPCalculator.astro';
+
+// WebApplication Schema for Search Results
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arcdome SIP Calculator",
+  "url": "https://arcdome.online/sip-calculator",
+  "applicationCategory": "FinancialApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript support.",
+  "description": "Calculate future maturity values of Systematic Investment Plans (SIP) in mutual funds. Compounded monthly with responsive visual charts.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+};
+
+// FAQ Schema for Rich Listings
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a SIP Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Systematic Investment Plan (SIP) calculator is an online tool that helps investors estimate the future returns of their monthly mutual fund investments. It uses the compound interest formula to determine the maturity amount based on the investment period and expected return rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the formula for SIP calculation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formula used to calculate SIP returns is: M = P * [((1 + i)^n - 1) / i] * (1 + i), where 'M' is the future value, 'P' is the monthly investment, 'i' is the monthly rate of interest (annual rate / 12 / 100), and 'n' is the number of months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the typical expected returns for mutual funds in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typical expected returns range from 10% to 12% for Index Funds and Large Cap funds, 12% to 15% for Mid Cap funds, and 15% to 18%+ for Small Cap funds over the long term (5+ years)."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Mutual Fund SIP Calculator Online: Estimate compounding returns" 
+  description="Calculate the maturity value of your monthly Systematic Investment Plans (SIP) in mutual funds. View estimated gains, wealth ratios, and presets."
+>
+  <div class="calc-page-container">
+    <!-- SIP Calculator Component -->
+    <SIPCalculator />
+
+    <!-- SEO Guide Section -->
+    <section class="calc-guide-section glass-card">
+      <h2>Systematic Investment Plan (SIP) Guide</h2>
+      <p>
+        A <strong>Systematic Investment Plan (SIP)</strong> is a smart, disciplined method of investing in mutual funds. Rather than making a one-time lump sum deposit, you invest a fixed sum of money at regular intervals (usually monthly). This method helps you leverage the power of compounding and rupee cost averaging.
+      </p>
+
+      <h3>How Does a SIP Calculator Work?</h3>
+      <p>
+        A SIP calculator estimates the potential return on your investments over a specific tenure. You input your monthly budget, the expected annual return rate, and the duration of your investment. The calculator computes the results instantly and gives you a visual breakdown.
+      </p>
+
+      <h3>The SIP Mathematical Formula</h3>
+      <p>
+        SIP calculators operate on the compound interest formula for a regular annuity. Since deposits are made monthly, compounding is applied monthly:
+      </p>
+      <div class="math-formula-box">
+        M = P &times; [((1 + i)<sup>n</sup> - 1) / i] &times; (1 + i)
+      </div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>M:</strong> Future value or maturity amount of the investment.</li>
+        <li><strong>P:</strong> The monthly installment amount.</li>
+        <li><strong>i:</strong> Monthly periodic interest rate (calculated as: Annual Return / 12 / 100).</li>
+        <li><strong>n:</strong> The total number of monthly payments (Years &times; 12).</li>
+      </ul>
+
+      <h3>Benefits of Systematic Investment Plans</h3>
+      <ul>
+        <li><strong>Rupee Cost Averaging:</strong> Since you invest a fixed sum monthly, you purchase more units when prices are low and fewer units when prices are high. This averages out your cost over time.</li>
+        <li><strong>Compounding Gains:</strong> Earnings are reinvested to generate more earnings, creating a snowball effect over long periods.</li>
+        <li><strong>Financial Discipline:</strong> Automating a fixed monthly savings plan builds a healthy habit of regular investing.</li>
+        <li><strong>No Need to Time the Market:</strong> You buy in both bull and bear markets, reducing the emotional stress of investing.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Inject Schema Markups -->
+  <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .calc-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .calc-guide-section {
+    padding: 40px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .calc-guide-section {
+      padding: 24px;
+    }
+  }
+
+  .calc-guide-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  .calc-guide-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 24px 0 12px;
+  }
+
+  .calc-guide-section p {
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section li {
+    margin-bottom: 8px;
+  }
+
+  .math-formula-box {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 20px 0;
+    color: var(--text-main);
+  }
+</style>

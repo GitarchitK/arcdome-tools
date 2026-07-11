@@ -169,6 +169,51 @@ const appSchema = {
         <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
       </a>
 
+      <!-- Tool 7: SIP Calculator -->
+      <a href="/sip-calculator" class="glass-card tool-card sip-theme">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+        </div>
+        <span class="tool-tag">Mutual Fund</span>
+        <h3>SIP Calculator</h3>
+        <p>Estimate future wealth from monthly SIP investments in mutual funds with category presets for Small Cap, Mid Cap, and Index Funds.</p>
+        <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <!-- Tool 8: Lumpsum Calculator -->
+      <a href="/lumpsum-calculator" class="glass-card tool-card lumpsum-theme">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+          </svg>
+        </div>
+        <span class="tool-tag">One-Time Investment</span>
+        <h3>Lumpsum Investment Calculator</h3>
+        <p>Calculate compound growth on a single one-time investment in equity, mutual funds, or fixed income assets.</p>
+        <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <!-- Tool 9: GST Calculator -->
+      <a href="/gst-calculator" class="glass-card tool-card gst-theme">
+        <div class="tool-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+        </div>
+        <span class="tool-tag">Tax Calculator</span>
+        <h3>GST Calculator</h3>
+        <p>Add or remove Goods &amp; Services Tax instantly. Supports all standard slabs (5%, 12%, 18%, 28%) with CGST/SGST invoice breakdown.</p>
+        <span class="tool-action-link">Try Tool <span class="arrow">&rarr;</span></span>
+      </a>
+
     </div>
   </section>
 
@@ -448,6 +493,21 @@ const appSchema = {
     --theme-color: #f43f5e;
     --theme-bg: rgba(244, 63, 94, 0.08);
     --theme-shadow: rgba(244, 63, 94, 0.15);
+  }
+  .sip-theme {
+    --theme-color: #8b5cf6;
+    --theme-bg: rgba(139, 92, 246, 0.08);
+    --theme-shadow: rgba(139, 92, 246, 0.15);
+  }
+  .lumpsum-theme {
+    --theme-color: #0891b2;
+    --theme-bg: rgba(8, 145, 178, 0.08);
+    --theme-shadow: rgba(8, 145, 178, 0.15);
+  }
+  .gst-theme {
+    --theme-color: #d97706;
+    --theme-bg: rgba(217, 119, 6, 0.08);
+    --theme-shadow: rgba(217, 119, 6, 0.15);
   }
 
   .tool-icon-box {

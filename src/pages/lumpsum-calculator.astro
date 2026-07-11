@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LumpsumCalculator from '../components/LumpsumCalculator.astro';
+
+// WebApplication Schema for Search Results
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arcdome Lumpsum Calculator",
+  "url": "https://arcdome.online/lumpsum-calculator",
+  "applicationCategory": "FinancialApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript support.",
+  "description": "Calculate future maturity values of one-time lumpsum mutual fund and stock investments compounded annually.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+};
+
+// FAQ Schema for Rich Listings
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Lump Sum Investment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A lump sum investment is a one-time deposit of a significant sum of money into a financial asset, such as a mutual fund or equity shares, which compounds over a set period."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is lumpsum compounding calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lumpsum returns are calculated using the compound interest formula: M = P * (1 + R/100)^t, where 'M' is the maturity amount, 'P' is the principal investment, 'R' is the expected annual return rate, and 't' is the duration in years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a SIP better than a Lumpsum investment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SIPs are ideal for salaried individuals to build wealth systematically and average out market fluctuations. Lumpsum investments are ideal when you have windfall cash or bonus income, allowing you to maximize long-term compounding by investing the entire sum early."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Lump Sum Mutual Fund Calculator Online: Calculate Compound Returns" 
+  description="Estimate the future value of your one-time lumpsum mutual fund or stock investments. Free calculator with compound interest presets."
+>
+  <div class="calc-page-container">
+    <!-- Lumpsum Calculator Component -->
+    <LumpsumCalculator />
+
+    <!-- SEO Guide Section -->
+    <section class="calc-guide-section glass-card">
+      <h2>Lump Sum Investment Guide</h2>
+      <p>
+        A <strong>Lump Sum Investment</strong> refers to committing a significant single sum of money into a financial asset at once. Unlike a Systematic Investment Plan (SIP) where you invest small amounts monthly, a lumpsum investment exposes your entire capital to the power of compound interest from day one.
+      </p>
+
+      <h3>How Does a Lumpsum Calculator Work?</h3>
+      <p>
+        The calculator estimates the potential return on a one-time investment. You input the total amount you wish to invest, your expected annual interest rate or return percentage, and the duration in years. The calculator computes the future compound value instantly.
+      </p>
+
+      <h3>The Lumpsum Compound Formula</h3>
+      <p>
+        Lumpsum investments in mutual funds compound annually according to the standard formula:
+      </p>
+      <div class="math-formula-box">
+        M = P &times; (1 + R / 100)<sup>t</sup>
+      </div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>M:</strong> Future maturity value of the investment.</li>
+        <li><strong>P:</strong> The initial principal amount invested.</li>
+        <li><strong>R:</strong> Expected annual return rate (expressed as a percentage).</li>
+        <li><strong>t:</strong> The total duration of the investment in years.</li>
+      </ul>
+
+      <h3>When to Choose Lumpsum Investments</h3>
+      <p>
+        Lumpsum investing is highly effective when:
+      </p>
+      <ul>
+        <li>You receive a lump sum payment (e.g. inheritance, employee bonus, retirement benefits, or proceeds from property sale).</li>
+        <li>The market is experiencing a significant downturn, allowing you to buy mutual fund units at lower valuations.</li>
+        <li>You have a very long investment horizon (10 to 20+ years), allowing compounding to exponentially grow your capital.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Inject Schema Markups -->
+  <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
+
+<style>
+  .calc-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .calc-guide-section {
+    padding: 40px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .calc-guide-section {
+      padding: 24px;
+    }
+  }
+
+  .calc-guide-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+  }
+
+  .calc-guide-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 24px 0 12px;
+  }
+
+  .calc-guide-section p {
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    color: var(--text-muted);
+  }
+
+  .calc-guide-section li {
+    margin-bottom: 8px;
+  }
+
+  .math-formula-box {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 20px 0;
+    color: var(--text-main);
+  }
+</style>
